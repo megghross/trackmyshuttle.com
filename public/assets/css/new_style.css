@@ -1,0 +1,222 @@
+/* .new-widget-style {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}*/
+
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.new_dev {
+    width: 100% !important;
+    min-width: 100px;
+    padding: 0 !important;
+    padding-left: 5px !important;
+    /* padding-top: 10px !important; */
+    background: #f2f2f2;
+}
+
+.contact-details-tab .nav-item a {
+    border-bottom-width: 1px !important;
+    border-top-left-radius: .125em;
+    border-top-right-radius: .125em;
+    border-color: #ffffff;
+}
+
+.contact-details-tab .nav-item a.active {
+    border-bottom-width: 0px !important;
+    border-top-: 0px #ffffff !important;  
+    border-right-width: 0px !important;        
+}
+
+
+.device-item {
+    width: 100%;
+}
+
+.new-mega {
+    font-size: 2.5em !important;
+    line-height: 95px;
+}
+
+.new-figure {
+    -webkit-margin-before: 0em !important;
+    -webkit-margin-after: 0em !important;
+    -webkit-margin-start: 0px !important;
+    -webkit-margin-end: 0px !important;
+    margin-right: 1rem !important;
+}
+
+.round_Image{
+    border-radius: 50%;
+    height: 100px;
+    padding-top: 16px;
+    color: #F2F3F2;
+    border: 2px solid;
+}
+.loader {
+    position: absolute;
+    left: calc(50% - 40px);
+    display: none;
+    top: calc(50% - 40px);
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #3498db;
+    width: 80px;
+    height: 80px;
+    z-index: 5000;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+.round_Image:hover{
+     background-color: #A5C8F2;
+ }
+.imageActive {
+    background-color: #A5C8F2;
+}
+.new-chart {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0%;
+    margin-top: 2px;
+}
+
+.route_size2{
+    color: #a5c8f2;
+    margin-top: 5px;
+}
+.routesArray{
+    display: flex;
+    overflow-x: auto;
+}
+.wrapRouteIcon{
+    display: grid;
+    width: 110px;
+}
+.new-serial {
+    margin-top: 33px;
+    width: 60%;
+    line-height: 18px !important;
+}
+
+.dial {
+    /*font-size: 20px;*/
+    /*margin-top: 33px;*/
+    /*margin-left: -77px;*/
+}
+
+.dial-percent {
+    display: none;    
+    width: 45px;
+    height: 30px;
+    position: absolute;
+    vertical-align: middle;
+    margin-top: 30px;
+    margin-left: -68px;
+    border: 0px;
+    background: none;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    font-stretch: normal;
+    font-size: 15px;
+    line-height: normal;
+    font-family: Arial;
+    text-align: center;
+    color: #4990E2;
+    padding: 0px;
+    -webkit-appearance: none;
+}
+
+.new-contents {
+    padding: 0 !important;
+}
+
+.new-tap {
+    /*font-size: em !important;*/
+}
+
+.fa-building-o:before {
+    content: "\f0f7";
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.new-gray {
+    font-weight: 700;
+    color: #7F7F7F !important;
+}
+
+.new-top-start-shuttle {
+    position: absolute;
+    top: -23px;
+    left: -15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.new-bottom-start-shuttle {
+    position: absolute;
+    top: 23px;
+    left: -15px;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.new-bottom-dot-shuttle {
+    position: absolute;
+    top: -18px !important;
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+span.righty p {
+    text-transform: capitalize;
+    font-size: 20px !important;
+    font-weight: 500;
+}
+
+/*.plugin_back {*/
+    /*width: 100% !important;*/
+/*}*/
+
+#rightside-menuu, .width-100 {
+    background: #f2f2f2;
+    height: 170px !important;
+    border-top-left-radius: 0rem !important;
+    border-top-right-radius: 0rem !important;
+}
+
+.customInput{
+    border : 0px;
+}
+
+.tab-content>.tab-pane {
+    display: none;
+}
+
+.tab-content>.active {
+    display: block;
+}
+
+.navbar{
+    z-index: 1000 !important;
+}
+
+
+.hotel-bigga {
+    margin-top: -9px;
+}
