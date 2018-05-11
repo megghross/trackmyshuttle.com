@@ -15,38 +15,44 @@
 
 
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600|Roboto:400" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600|Roboto:400" rel="stylesheet"
+          type="text/css"/>
     <link href="{{asset("assets/vendors/material-icons/material-icons.css")}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset("assets/vendors/mono-social-icons/monosocialiconsfont.css")}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset("assets/vendors/mono-social-icons/monosocialiconsfont.css")}}" rel="stylesheet"
+          type="text/css"/>
     <link href="{{asset("assets/vendors/feather-icons/feather.css")}}" rel="stylesheet" type="text/css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css"
+          rel="stylesheet" type="text/css"/>
     <link href="{{asset("assets/css/style.css")}}" rel="stylesheet" type="text/css"/>
 
+    <!------CSS Specially for views------->
+@yield("styles")
 
-    @yield("styles")
-
-    <!-- Head Libs -->
+<!-- Head Libs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
 </head>
 
 
-<body class="{{isset($bodyClass)?$bodyClass:"header-dark sidebar-light sidebar-expand pace-done"}}" >
-
+<body class="{{isset($bodyClass)?$bodyClass:"header-dark sidebar-light sidebar-expand pace-done"}}">
 
 
 @include('layouts.nav')
-
-
+<div class="content-wrapper">
+    @include('layouts.sidebar')
+</div>
 
 @yield("content")
 <!-- Scripts -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/js/material-design.js"></script>
+<script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset("assets/js/material-design.js")}}"></script>
 
 
+<!---Scripts for View--->
+@yield("scripts")
 
 
- </body>
+</body>
 </html>

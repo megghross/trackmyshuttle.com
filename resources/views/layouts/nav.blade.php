@@ -1,11 +1,10 @@
 <!-- HEADER & TOP NAVIGATION -->
 <nav class="navbar">
-
     <!-- Logo Area -->
     <div class="navbar-header">
         <a href="index.php" class="navbar-brand">
-            <img class="logo-expand" alt="" src="assets/img/logo-expand.png" />
-            <img class="logo-collapse" alt="" src="assets/img/logo-collapse.png" />
+            <img class="logo-expand" alt="" src="assets/img/logo-expand.png"/>
+            <img class="logo-collapse" alt="" src="assets/img/logo-collapse.png"/>
             <!-- <p>BonVue</p> -->
         </a>
     </div><!-- /.navbar-header -->
@@ -29,57 +28,79 @@
 
     <!-- User Image with Dropdown -->
     <ul class="nav navbar-nav">
-        <li class="dropdown">
-            <a href="javascript:void(0);" class="dropdown-toggle ripple" data-toggle="dropdown">
+        @guest
+
+        @else
+            <li class="dropdown">
+                <a href="javascript:void(0);" class="dropdown-toggle ripple" data-toggle="dropdown">
         <span class="avatar thumb-xs2">
-          <img src="assets/img/user-nav.png" class="rounded-circle" alt="" />
+            <span class="profile-circle">
+                <span>{{textInitials(Auth::user()->name, 2)}}</span>
+            </span>
+          {{--<img src="assets/img/user-nav.png" class="rounded-circle" alt=""/>--}}
           <i class="feather feather-chevron-down list-icon"></i>
         </span>
-            </a>
+                </a>
 
-            <div class="dropdown-menu dropdown-left dropdown-card dropdown-card-profile animated flipInY">
-                <div class="card">
-                    <header class="card-header d-flex mb-0">
-                        <a href="javascript:void(0);" class="col-md-4 text-center">
-                            <i class="feather feather-user align-middle"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="col-md-4 text-center">
-                            <i class="feather feather-settings align-middle"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="col-md-4 text-center">
-                            <i class="feather feather-x align-middle"></i>
-                        </a>
-                    </header>
-
-                    <ul class="list-unstyled card-body">
-                        <li>
-                            <a href="#">
-                <span>
-                  <span class="align-middle nav-profile-name">Cuan-Chai Megghross</span>
-                </span>
+                <div class="dropdown-menu dropdown-left dropdown-card dropdown-card-profile animated flipInY">
+                    <div class="card">
+                        <header class="card-header d-flex mb-0">
+                            <a href="javascript:void(0);" class="col-md-4 text-center">
+                                <i class="feather feather-user align-middle"></i>
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                <span>
-                  <span class="align-middle">Change Password</span>
-                </span>
+                            <a href="javascript:void(0);" class="col-md-4 text-center">
+                                <i class="feather feather-settings align-middle"></i>
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                <span>
-                  <span class="align-middle">Check Inbox</span>
-                </span>
+                            <a href="javascript:void(0);" class="col-md-4 text-center">
+                                <i class="feather feather-x align-middle"></i>
                             </a>
-                        </li>
+                        </header>
 
-                    </ul>
+                        <ul class="list-unstyled card-body">
+                            <li>
+                                <a href="#">
+                <span>
+                  <span class="align-middle nav-profile-name">{{Auth::user()->name}}</span>
+                </span>
+                                </a>
+                            </li>
+
+                            {{--<li>--}}
+                            {{--<a href="#">--}}
+                            {{--<span>--}}
+                            {{--<span class="align-middle">Change Password</span>--}}
+                            {{--</span>--}}
+                            {{--</a>--}}
+                            {{--</li>--}}
+
+                            {{--<li>--}}
+                            {{--<a href="#">--}}
+                            {{--<span>--}}
+                            {{--<span class="align-middle">Check Inbox</span>--}}
+                            {{--</span>--}}
+                            {{--</a>--}}
+                            {{--</li>--}}
+
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                <span>
+                  <span class="align-middle">Logout</span>
+                </span>
+                                </a>
+
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        @endguest
     </ul><!-- /.navbar-right -->
 
     <!-- Right Menu -->
@@ -92,7 +113,8 @@
             <div class="dropdown-menu dropdown-left dropdown-card animated flipInY">
                 <div class="card">
                     <header class="card-header d-flex align-items-center mb-0">
-                        <a href="javascript:void(0);"><i class="feather feather-bell color-color-scheme" aria-hidden="true"></i></a>
+                        <a href="javascript:void(0);"><i class="feather feather-bell color-color-scheme"
+                                                         aria-hidden="true"></i></a>
                         <span class="heading-font-family flex-1 text-center fw-400">Notifications</span>
                         <a href="javascript:void(0);"><i class="feather feather-settings color-content"></i></a>
                     </header>
@@ -144,7 +166,8 @@
                     </ul><!-- /.dropdown-list-group -->
 
                     <footer class="card-footer text-center">
-                        <a href="javascript:void(0);" class="heading-font-family text-uppercase fs-13">See all activity</a>
+                        <a href="javascript:void(0);" class="heading-font-family text-uppercase fs-13">See all
+                            activity</a>
                     </footer>
 
                 </div><!-- /.card -->

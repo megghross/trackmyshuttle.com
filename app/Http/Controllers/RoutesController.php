@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\ETAHelpers;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
-class HomeController extends Controller
+class RoutesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+//        dd(Auth::user()->hasRole("admin") );
+//        $role = Role::get()->where("name", "admin")->first();
+//        dd($role);
+
+        return view('routes.index');
     }
 }

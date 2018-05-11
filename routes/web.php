@@ -10,13 +10,31 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')
+Route::get('/', 'HomeController@index')->name("dashboard");
+
+
+Route::get('/live-tracking', 'LiveTrackingController@index')->name('live-tracking');
+
+
+Route::get('/routes', 'RoutesController@index')->name('routes');
+
+
+Route::get('/shuttles', 'ShuttlesController@index')->name('shuttles');
+
+
+Route::get('/support', 'ShuttlesController@index')->name('support');
+
+
+
+
+
+
+
 //    ->middleware("role:admin")
-;
