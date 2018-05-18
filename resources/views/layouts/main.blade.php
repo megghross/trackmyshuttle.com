@@ -10,9 +10,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="{{asset("assets/vendors/fontawesome-icons/fa-light.css")}}" rel="stylesheet">
+    <link href="{{asset("assets/vendors/fontawesome-icons/fa-regular.css")}}" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/pace.css" />
+
+
+
 
     <title>{{ isset($title)?$title:config('app.name', 'Track My Shuttle') }}</title>
-
+    <!-- CSS -->
+    <link href="{{asset("assets/vendors/linea-icons/styles.css")}}" rel="stylesheet" type="text/css"/>
 
     <!-- CSS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600|Roboto:400" rel="stylesheet"
@@ -24,12 +32,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/css/perfect-scrollbar.min.css"
           rel="stylesheet" type="text/css"/>
     <link href="{{asset("assets/css/style.css")}}" rel="stylesheet" type="text/css"/>
+{{--    <link href="{{asset("assets/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css"/>--}}
 
     <!------CSS Specially for views------->
 @yield("styles")
 
 <!-- Head Libs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>--}}
 
 </head>
 
@@ -47,7 +57,6 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"
         src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{asset("assets/js/material-design.js")}}"></script>
 
 
 <!---Scripts for View--->

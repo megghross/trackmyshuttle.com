@@ -40,7 +40,7 @@
                 </a>
             </li>
 
-            <li class="{{isActive("routes")}}">
+            <li class="{{isActive("settings")}}">
                 <a class="bluer" href="{{Route("routes")}}">
                     <i class="list-icon feather feather-settings"></i>
                     <span class="hide-menu">

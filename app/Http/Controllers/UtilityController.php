@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Abraham\TwitterOAuth\Response;
+use App\Helpers\ETAHelpers;
+use App\Models\Device;
+use App\Models\Marker;
+use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
@@ -45,5 +49,35 @@ class UtilityController extends Controller
             return response()->json(['status' => false, 'message' => 'Some problem inserting data to database', 'exception' => $e->getMessage()]);
 
         }
+    }
+
+
+    public function UpdateLocation(Request $request){
+
+        $serialNumber = $request->input("serialNumber");
+        $lat = $request->input("lat");
+        $long = $request->input("long");
+        $locationdatetime = $request->input("locationdatetime");
+        $device_text = $request->input("device_text");
+        $device = Device::where("serialNumber", $serialNumber)->first();
+        $route = Route::where('id', $device->routeId)->first();
+        $coordinates =  explode("\n", $route->coordinates);
+        $markers = Marker::where('route', $route->name)->get()->toArray();
+        $EtaHelper = new ETAHelpers();
+        $point = array($lat,  $long);
+//        List($min, $index) = $EtaHelper->getMinimumDistance($point, $coordinates);
+        List($min, $index) = $EtaHelper->getMinimumDistanceFromMarkers($point, $markers);
+//        dd($min, $index);
+
+        if($index>0){
+            $markers = array_slice($markers, 1, (Count($markers) - 1));
+        }
+
+        $markers[0]["lat"] = $point[0];
+        $markers[0]["lng"] = $point[1];
+        $eta = $EtaHelper->getGoogleETA($markers);
+
+        dd(($eta/60)." mins");
+
     }
 }

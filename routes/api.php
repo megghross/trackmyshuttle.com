@@ -21,4 +21,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::name("util.")->group(function(){
     Route::get('/shuttles', "UtilityController@GetShuttles")->name("getShuttles");
+
+    Route::post('/update', "UtilityController@UpdateLocation")->name("update");
+
+
+});
+
+
+
+Route::prefix("routes")->name("routes.")->group(function(){
+    Route::post('/load', "RoutesController@LoadData")->name("load");
+    Route::post('/save', "RoutesController@SaveData")->name("save");
+});
+
+
+
+Route::prefix("dashboard")->name("dashboard.")->group(function(){
+    Route::get('/load', "HomeController@LoadData")->name("load");
+    Route::get('/loaddrivers', "HomeController@LoadDrivers")->name("loaddrivers");
+    Route::get('/getdashboarddata', "HomeController@GetDashboardData")->name("getdashboarddata");
 });

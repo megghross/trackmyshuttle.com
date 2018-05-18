@@ -1,0 +1,383 @@
+
+.ro-loading-container {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #ffffff;
+}
+.ro-loading {
+	background: #ffffff url("clock.gif") 0 0 no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 64px;
+	height: 64px;
+	margin-left: -32px;
+	margin-top: -32px;
+	display:none;
+}
+
+.ro-container {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
+.ro-map {
+	height: 100%;
+}
+
+.ro-overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.7);
+}
+
+.ro-dialog {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: #ffffff;
+	/*border-radius: 2px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);*/
+	width: 600px;
+	height: 400px;
+}
+.ro-welcome-dialog{
+  height: 120px;
+  background-color: transparent;
+}
+.ro-dialog-inner {
+	margin: 0 10px;
+}
+.ro-dialog-to-bottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: none;
+}
+
+.ro-controls,.ro-controls a {
+	color: #555555;
+	font-size: 16px;
+}
+.ro-controls:hover,.ro-controls a:hover {
+	text-decoration: none;
+	color: #111111;
+}
+.ro-controls-aleft {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.ro-controls-aright {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.ro-off {
+	color: #909090;
+}
+.ro-off a {
+	color: #628baa;
+}
+
+.ro-project {
+	position: absolute;
+	z-index: 1;
+	top: 30px;
+	left: 30px;
+	width: 320px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	cursor: default;
+	overflow: auto;
+}
+.ro-project-inner {
+	margin: 0 10px;
+}
+.ro-project-settings-controls {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	
+	display: none;
+}
+.ro-project-add-layer {
+	margin-bottom: 10px;
+	display: none;
+}
+.ro-projects-list {
+	overflow-y: auto;
+}
+
+
+.ro-layer {
+	background-color: #ffffff;
+	border-top: 1px solid #e5e5e5;
+	border-left: 4px solid transparent;
+	padding: 10px 10px 10px 6px;
+	font-size: 13px;
+	color: #505050;
+}
+.ro-layer:hover {
+	border-left: 4px solid #e5e5e5;
+}
+.ro-layer.ro-layer-active {
+	border-left: 4px solid #4d90fe;
+}
+.ro-layer.ro-layer-disable-select {
+	border-left: 4px solid transparent;
+}
+.ro-layer.ro-layer-disable-select .ro-layer-title {
+	color: #909090;
+}
+.ro-layer.ui-draggable {
+	border: 1px solid #e5e5e5;
+}
+.ro-layer-header {
+	position: relative;
+	font-weight: bold;
+	display: none;
+}
+.ro-layer-title {
+	color: #505050;
+	outline: 0;
+}
+.ro-layer-title:hover {
+	text-decoration: none;
+	color: #111111;
+}
+.ro-layer-body {
+  /*
+	padding-left: 10px;
+	padding-top: 4px;
+	*/
+}
+.ro-layer-body-empty {
+	position: absolute;
+	margin-top: 15px;
+}
+
+.ro-search {
+	position: absolute;
+	z-index: 1;
+	top: 30px;
+	left: 370px;
+	width: 400px;
+	background-color: #ffffff;
+	border-radius: 2px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	cursor: default;
+	
+	display: none;
+}
+.ro-search input {
+	border: 1px solid #ffffff;
+	box-shadow: none;
+	border-radius: 2px;
+}
+.ro-search input:focus {
+	border: 1px solid #66afe9;
+}
+.ro-search-clear {
+	line-height: 30px;
+	padding: 0 5px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.ro-notification-bar {
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	bottom: 40px;
+	width: 500px;
+	margin-left: -250px;
+	/*box-shadow: 1px 1px 3px rgba(0,0,0,0.5);*/
+	border-color: #ffcc02 !important;
+}
+
+.close.ro {
+	color: #856a01 !important;
+	opacity: .9 !important;
+}
+
+.close.ro:hover {
+	color: #333333 !important;
+}
+
+.ro-toolbar {
+	position: absolute;
+	top: 75px;
+	left: 370px;
+	
+	display: none;
+}
+.ro-toolbar > a {
+	display: inline-block;
+	background-color: #ffffff;
+	padding: 2px 5px 1px;
+	border-radius: 2px;
+	border: 1px solid #ffffff;
+	margin-right: 5px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+	cursor: pointer;
+	outline: 0;
+}
+.ro-toolbar > a:hover {
+	border: 1px solid #a0a0a0;
+}
+.ro-toolbar > a.disabled {
+	box-shadow: none;
+	color: #a0a0a0;
+	cursor: not-allowed;
+}
+.ro-toolbar > a.disabled:hover {
+	border: 1px solid #ffffff;
+}
+.ro-toolbar > a.ro-tool-selected {
+	background-color: #a0a0a0;
+	color: #ffffff;
+	border: 1px solid #858585;
+}
+.ro-toolbar > a.ro-tool-selected:hover {
+	border: 1px solid #505050;
+}
+
+.ro-welcome-offset {
+	margin-top: 30px;
+}
+
+.ro-iwnd {
+	width: 600px;
+}
+.ro-iwnd .modal-body {
+	padding-bottom: 10px;
+}
+.ro-iwnd .modal-footer {
+	border: 0;
+	padding-top: 0;
+	margin-top: 0;
+}
+.ro-iwnd-search-result {
+	padding: 10px;
+	background-color: #f0f0f0;
+}
+.ro-iwnd-add-to-map {
+	padding: 5px;
+}
+
+
+.ro-shapes {
+	/*
+	border-top: 1px dotted #dedede;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	*/
+	min-height: 46px;
+}
+.ro-shape-title {
+	display: block;
+	padding: 5px;
+	margin-bottom: 1px;
+	outline: 0;
+	text-decoration: none;
+}
+.ro-shape-active {
+	font-weight: bold;
+	background-color: #f0f0f0;
+}
+.ro-shape-title:hover {
+	background-color: #f0f0f0;
+	text-decoration: none;	
+}
+
+.ro-shape-directions {
+	position: relative;
+}
+.ro-shape-directions .ro-as-link {
+	color: #428bca;
+	display: none;
+}
+.ro-shape-directions .ro-controls-aright {
+	padding-top: 3px;
+	padding-right: 3px;
+}
+.ro-destinations-list {
+	color: #999999;
+	margin-left: 5px;
+	margin-top: 3px;
+	font-weight: normal;
+}
+.ro-destinations-list > div {
+  margin: 1px 0;
+}
+.ro-destinations-list .form-group {
+	margin-bottom: 2px;
+}
+.ro-links-right {
+	font-weight: normal;
+	text-align: right;
+}
+.ro-links-right a {
+	padding-left: 5px;
+}
+.ro-sub-checkboxes {
+	font-weight: normal;
+	display: none;
+}
+.ro-sub-checkboxes a {
+	padding-right: 5px;
+}
+.ro-sub-checkboxes a:hover {
+	text-decoration: none;
+}
+
+/* Other */
+
+.checkbox.ro {
+    display: block;
+    min-height: 20px;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    width: 360px;
+    margin: 15px auto;
+    color: #ffffff;
+}
+
+.btn-grouper-ro a{
+	font-size:14px !important;
+}
+
+p i {
+    color: #856a01;	
+}
+
+.alert-warning.spacer {
+    padding-left: 10px;
+    color: #856a01;
+}
+
+.remove-destination-button {
+  top: 0;
+}

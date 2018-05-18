@@ -26,8 +26,8 @@ canvas {
 
 .contact-details-tab .nav-item a.active {
     border-bottom-width: 0px !important;
-    border-top-: 0px #ffffff !important;  
-    border-right-width: 0px !important;        
+    border-top-: 0px #ffffff !important;
+    border-right-width: 0px !important;
 }
 
 
@@ -70,8 +70,8 @@ canvas {
     animation: spin 2s linear infinite;
 }
 .round_Image:hover{
-     background-color: #A5C8F2;
- }
+    background-color: #A5C8F2;
+}
 .imageActive {
     background-color: #A5C8F2;
 }
@@ -108,7 +108,7 @@ canvas {
 }
 
 .dial-percent {
-    display: none;    
+    display: none;
     width: 45px;
     height: 30px;
     position: absolute;
@@ -190,7 +190,7 @@ span.righty p {
 }
 
 /*.plugin_back {*/
-    /*width: 100% !important;*/
+/*width: 100% !important;*/
 /*}*/
 
 #rightside-menuu, .width-100 {

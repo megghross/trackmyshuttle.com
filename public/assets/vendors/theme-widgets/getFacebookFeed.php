@@ -3,12 +3,12 @@ require "vendor/autoload.php";
 
 define("APP_ID", "629815533892815");
 define("APP_SECRET", "f26c315139206cbc69545d6a3b374e05");
-define("APP_NAMESPACE", "unifato_feed");
+define("APP_NAMESPACE", "megghross_feed");
 
 use \Mute\Facebook\App;
 
 $defaults = [
-  'user' => 'envato',
+  'user' => 'cuanchaimegghross',
   'limit' => 3,
 ];
 

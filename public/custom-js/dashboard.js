@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     function loadRoutes() {
         $.ajax({
-            url: 'api.php?action=getShuttleRecordFromRoutes',
+            url: '/api/dashboard/load',
             success: function (data) {
 
                 htmlArray = [];
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     function loadDrivers(){
         $.ajax({
-            url: 'api.php?action=getDrivers',
+            url: '/api/dashboard/loaddrivers',
             success: function (data) {
 
                 htmlArray = [];
@@ -62,7 +62,7 @@ $(document).ready(function () {
     function ajaxRequestToLoad() {
 
         $.ajax({
-            url: 'api.php?action=getDashboardData',
+            url: '/api/dashboard/getdashboarddata',
 
             success: function (data) {
 
@@ -260,6 +260,10 @@ $(document).ready(function () {
                     $("#device" + i + "_" + k).parent().css('display', 'none');
                 }
             }
+            for (i = 1; i <= length; i++) {
+                $("#dev" + i).removeClass('active');
+
+            }
             // $('.assign_shuttle').each(function(){
             //     $(this).removeClass('active');
             // });
@@ -278,6 +282,7 @@ $(document).ready(function () {
             }
             $(childs[0]).children().eq(0).addClass("active");
             $(href).addClass('active');
+
             $(href).parent().css('display', 'block');
             $(href + "_1").addClass('active');
             $(href + "_1").parent().css('display', 'block');
