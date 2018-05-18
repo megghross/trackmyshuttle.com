@@ -65,7 +65,6 @@ class ETAHelpers
             return $stop["lat"] . ',' . $stop["lng"];
         }, array_slice($markers, 1, (Count($markers) - 2))));
 
-
         $str = $this->GetJson("https://maps.googleapis.com/maps/api/directions/json?origin=" . urlencode($markers[0]["lat"] . "," . $markers[0]["lng"]) . "&destination=" . urlencode($markers[(Count($markers) - 1)]["lat"]. "," . $markers[(Count($markers) - 1)]["lng"]) . "&waypoints=" . urlencode($waypoints) . "&key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM");
         $data = json_decode($str)->routes[0];
         $time=0;
