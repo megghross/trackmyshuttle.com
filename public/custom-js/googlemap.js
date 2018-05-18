@@ -1076,7 +1076,7 @@ function getLength(polyline) {
 function load_data() {
     $.ajax({
         type: "POST",
-        url: "/api/routes/load",
+        url: "api/routes/load",
         data: {action: "load"},
         cache: false,
         timeout: 20000,
@@ -1707,7 +1707,7 @@ function route_create_save(route, isEdit) {
 
     $.ajax({
         type: "POST",
-        url: "/api/routes/save",
+        url: "api/routes/save",
         data: {table: 'route', action: action, data: JSON.stringify(data)},
         cache: false,
         timeout: 20000,
