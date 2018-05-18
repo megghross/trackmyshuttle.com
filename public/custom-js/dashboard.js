@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     function loadDrivers(){
         $.ajax({
-            url: '/api/dashboard/loaddrivers',
+            url: 'api/dashboard/loaddrivers',
             success: function (data) {
 
                 htmlArray = [];
@@ -62,7 +62,7 @@ $(document).ready(function () {
     function ajaxRequestToLoad() {
 
         $.ajax({
-            url: '/api/dashboard/getdashboarddata',
+            url: 'api/dashboard/getdashboarddata',
 
             success: function (data) {
 
