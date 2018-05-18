@@ -16,7 +16,7 @@ $(document).ready(function () {
 
     function loadRoutes() {
         $.ajax({
-            url: '/api/dashboard/load',
+            url: 'api/dashboard/load',
             success: function (data) {
 
                 htmlArray = [];
