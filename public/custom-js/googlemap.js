@@ -9,6 +9,11 @@ var editRouteObj = null;
 var selectFlag = 1;
 var directionsService;
 var directionsDisplay;
+
+let URL = $("body").data("url");
+let BaseURL = $("body").data("baseurl")+'/';
+
+
 $(document).ready(function () {
 
     $(document).on('keydown', '#route-create-name', function (e) {
@@ -172,7 +177,7 @@ $(document).ready(function () {
         Inputs[Inputs.length - 1].value = create_markers[0].customInfo.address;
         var icon_size = 20;
         icon = {
-            url: "img/marker-End.png",
+            url: BaseURL + "img/marker-End.png",
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -200,7 +205,7 @@ $(document).ready(function () {
             for (var i = 1; i < create_markers.length - 1; i++) {
                 if (create_markers[i].customInfo.type == 'End') {
                     var icon = {
-                        url: "img/marker-Stop.png",
+                        url: BaseURL + "img/marker-Stop.png",
                         scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                         origin: new google.maps.Point(0, 0), // origin
                         anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -225,7 +230,7 @@ $(document).ready(function () {
         var icon_size = 20;
         if (create_markers.length == 0) {
             var icon = {
-                url: "img/marker-Start.png", // url
+                url: BaseURL + "img/marker-Start.png", // url
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -233,7 +238,7 @@ $(document).ready(function () {
             };
         } else {
             var icon = {
-                url: "img/marker-End.png", // url
+                url: BaseURL + "img/marker-End.png", // url
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -312,7 +317,7 @@ $(document).ready(function () {
             var icon_size = 20;
             var icon;
             icon = {
-                url: "img/marker-Start.png",
+                url: BaseURL + "img/marker-Start.png",
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -321,7 +326,7 @@ $(document).ready(function () {
             create_markers[0].setOptions({icon: icon});
             create_markers[0].customInfo.type = "Start";
             icon = {
-                url: "img/marker-End.png",
+                url: BaseURL + "img/marker-End.png",
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -332,7 +337,7 @@ $(document).ready(function () {
             displayRoute();
         } else if (create_markers.length == 1) {
             icon = {
-                url: "img/marker-Start.png",
+                url: BaseURL + "img/marker-Start.png",
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -376,7 +381,7 @@ $(document).ready(function () {
         }
         var icon_size = 24;
         var icon = {
-            url: "img/marker-" + selectedShape.customInfo.type + ".png",
+            url: BaseURL + "img/marker-" + selectedShape.customInfo.type + ".png",
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -403,7 +408,7 @@ $(document).ready(function () {
 
         var icon_size = 24;
         var icon = {
-            url: "img/marker-" + selectedShape.customInfo.type + ".png",
+            url: BaseURL + "img/marker-" + selectedShape.customInfo.type + ".png",
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -540,7 +545,7 @@ $(document).ready(function () {
         $(".loader").css("display", "block");
         $.ajax({
             type: "POST",
-            url: "routes-edit-callback.php",
+            url: URL,
             data: {table: 'route', action: 'update', data: JSON.stringify(route_data)},
             cache: false,
             timeout: 20000,
@@ -713,7 +718,7 @@ function initMap() {
                 if (create_markers[i].customInfo.type == 'End') {
                     var icon_size = 20;
                     var icon = {
-                        url: "img/marker-Stop.png", // url
+                        url: BaseURL + "img/marker-Stop.png", // url
                         scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                         origin: new google.maps.Point(0, 0), // origin
                         anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -774,7 +779,7 @@ function clearSelection() {
         if (selectedShape.customInfo.layer == 'marker') {
             var icon_size = 20;
             var icon = {
-                url: "img/marker-" + selectedShape.customInfo.type + ".png",
+                url: BaseURL + "img/marker-" + selectedShape.customInfo.type + ".png",
                 scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                 origin: new google.maps.Point(0, 0), // origin
                 anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -816,7 +821,7 @@ function setSelection(shape) {
     if (selectedShape.customInfo.layer == 'marker') {
         var icon_size = 24;
         var icon = {
-            url: "img/marker-" + selectedShape.customInfo.type + ".png",
+            url: BaseURL + "img/marker-" + selectedShape.customInfo.type + ".png",
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -871,7 +876,7 @@ function deleteSelectedShape() {
                 var icon_size = 20;
                 var icon;
                 icon = {
-                    url: "img/marker-Start.png",
+                    url: BaseURL + "img/marker-Start.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -880,7 +885,7 @@ function deleteSelectedShape() {
                 create_markers[0].setOptions({icon: icon});
                 create_markers[0].customInfo.type = "Start";
                 icon = {
-                    url: "img/marker-End.png",
+                    url: BaseURL + "img/marker-End.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -891,7 +896,7 @@ function deleteSelectedShape() {
                 displayRoute();
             } else if (create_markers.length == 1) {
                 icon = {
-                    url: "img/marker-Start.png",
+                    url: BaseURL + "img/marker-Start.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -921,7 +926,7 @@ function deleteSelectedShape() {
             //if id is not null ajax
             $.ajax({
                 type: "POST",
-                url: "routes-edit-callback.php",
+                url: URL,
                 data: {
                     table: selectedShape.customInfo.layer,
                     action: "delete",
@@ -1076,12 +1081,12 @@ function getLength(polyline) {
 function load_data() {
     $.ajax({
         type: "POST",
-        url: "api/routes/load",
+        url: URL,
         data: {action: "load"},
         cache: false,
         timeout: 20000,
-        success: function (data) {
-            // var data = JSON.parse(response);
+        success: function (response) {
+            var data = response;
             var route_data = data.route_data;
             var marker_data = data.marker_data;
             for (var i = 0; i < route_data.length; i++) {
@@ -1110,7 +1115,7 @@ function load_data() {
                     }
                 });
                 //polyline.setMap(map);
-                var htmlStr = '<div class="route-box"><a href="#"><img src="img/route.png" alt="Routes"><div class="desc">' + route_data[i].name + '</div></a></div>';
+                var htmlStr = '<div class="route-box"><a href="#"><img src="'+BaseURL+'img/route.png" alt="Routes"><div class="desc">' + route_data[i].name + '</div></a></div>';
                 $(".routes-box").append(htmlStr);
                 routes.push(polyline);
                 addEvent(polyline);
@@ -1121,7 +1126,7 @@ function load_data() {
                 var point = new google.maps.LatLng(lat, lng);
                 var icon_size = 20;
                 var icon = {
-                    url: "img/marker-" + marker_data[i].type + ".png",
+                    url: BaseURL + "img/marker-" + marker_data[i].type + ".png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size) / 2), // anchor
@@ -1550,7 +1555,7 @@ function searchPlace(address, index) {
             var icon_size = 20;
             if (index == 0) {
                 var icon = {
-                    url: "img/marker-Start.png",
+                    url: BaseURL + "img/marker-Start.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1571,7 +1576,7 @@ function searchPlace(address, index) {
                 });
             } else if (index == create_markers.length - 1) {
                 var icon = {
-                    url: "img/marker-End.png",
+                    url: BaseURL + "img/marker-End.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1591,7 +1596,7 @@ function searchPlace(address, index) {
                 });
             } else {
                 var icon = {
-                    url: "img/marker-Stop.png",
+                    url: BaseURL + "img/marker-Stop.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1614,7 +1619,7 @@ function searchPlace(address, index) {
                 for (var i = 1; i < create_markers.length - 1; i++) {
                     if (create_markers[i].customInfo.type == 'End') {
                         var icon = {
-                            url: "img/marker-Stop.png",
+                            url: BaseURL + "img/marker-Stop.png",
                             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                             origin: new google.maps.Point(0, 0), // origin
                             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1707,7 +1712,7 @@ function route_create_save(route, isEdit) {
 
     $.ajax({
         type: "POST",
-        url: "api/routes/save",
+        url: URL,
         data: {table: 'route', action: action, data: JSON.stringify(data)},
         cache: false,
         timeout: 20000,
@@ -1722,7 +1727,7 @@ function route_create_save(route, isEdit) {
                 route_details(route.customInfo.name);
                 if (route.customInfo.id == null) {
                     route.customInfo.id = json.id;
-                    var htmlStr = '<div class="route-box"><a href="#"><img src="img/route.png" alt="Routes"><div class="desc">' + route_data.name + '</div></a></div>';
+                    var htmlStr = '<div class="route-box"><a href="#"><img src="'+BaseURL+'img/route.png" alt="Routes"><div class="desc">' + route_data.name + '</div></a></div>';
                     $(".routes-box").append(htmlStr);
                 } else {
                     $('.route-box a').filter(function () {
@@ -1760,15 +1765,15 @@ function route_details(route_name) {
     });
     $(".route-details").html("");
     htmlStr = '<table><caption><h4><a href="#">' + route_name + '</h4></a></caption' +
-        '<tr><td><img src="img/marker-Start.png"></td><td><h4>' + start_marker[0].customInfo.name + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
+        '<tr><td><img src="'+BaseURL+'img/marker-Start.png"></td><td><h4>' + start_marker[0].customInfo.name + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
     for (var i = 0; i < waypoint_array.length; i++) {
         if (waypoint_array[i].customInfo.type == 'Stop') {
-            htmlStr += '<tr><td><img src="img/marker-Stop.png"></td><td><h4>' + waypoint_array[i].customInfo.name + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
+            htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-Stop.png"></td><td><h4>' + waypoint_array[i].customInfo.name + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
         } else if (waypoint_array[i].customInfo.type == 'Waypoint') {
-            htmlStr += '<tr><td><img src="img/marker-Waypoint.png"></td><td><h4>' + waypoint_array[i].customInfo.name + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
+            htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-Waypoint.png"></td><td><h4>' + waypoint_array[i].customInfo.name + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
         }
     }
-    htmlStr += '<tr><td><img src="img/marker-End.png"></td><td><h4>' + end_marker[0].customInfo.name + '</h4>' + end_marker[0].customInfo.address + '</h4></td></tr></table>';
+    htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-End.png"></td><td><h4>' + end_marker[0].customInfo.name + '</h4>' + end_marker[0].customInfo.address + '</h4></td></tr></table>';
     $(".route-details").html(htmlStr);
 }
 
@@ -1870,7 +1875,7 @@ function addToRoute() {
     tempInfowindow.setMap(null);
     if (create_markers.length == 0) {
         var icon = {
-            url: "img/marker-Start.png", // url
+            url: BaseURL + "img/marker-Start.png", // url
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1878,7 +1883,7 @@ function addToRoute() {
         };
     } else {
         var icon = {
-            url: "img/marker-End.png", // url
+            url: BaseURL + "img/marker-End.png", // url
             scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
             origin: new google.maps.Point(0, 0), // origin
             anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -1915,7 +1920,7 @@ function addToRoute() {
             if (create_markers[i].customInfo.type == 'End') {
                 var icon_size = 20;
                 var icon = {
-                    url: "img/marker-Stop.png", // url
+                    url: BaseURL + "img/marker-Stop.png", // url
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor

@@ -38,5 +38,19 @@ Route::get('/test', function(){
 
 
 
+Route::prefix("iframe")->name("iframe.")->group(function() {
+    Route::get('/routes', function(){
+        return view('routes.fragments.routes');
+    })->name("routes");
+
+
+    Route::get('/livetracking', function(){
+        return view('livetracking.fragments.livetracking');
+    })->name("livetracking");
+
+
+});
+
+
 
 //    ->middleware("role:admin")

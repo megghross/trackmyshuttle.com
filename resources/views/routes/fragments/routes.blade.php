@@ -1,8 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Test Route</title>
+    <link rel="stylesheet" href="{{asset("assets/route/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/route/css/bootstrap-colorpicker.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/route/css/font-awesome.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/route/css/style.css")}}">
+    <script src="{{asset("assets/route/js/jquery-3.2.1.min.js")}}"></script>
+    <script src="{{asset("assets/route/js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("assets/route/js/bootstrap-colorpicker.min.js")}}"></script>
+</head>
+<body data-url="{{route("routes.main")}}" data-baseurl="{{asset("assets/route/")}}">
 <div class="routes-edit-page-container">
     <div class="loader"></div>
     <div id="map"></div>
     <div class="route-new">
-        <a href="#"><img src="img/new.png" alt="New">
+        <a href="#"><img src="{{asset("assets/route/img/new.png")}}" alt="New">
             <div class="desc">New</div></a>
     </div>
     <div class="routes-box">
@@ -66,3 +81,7 @@
         </div>
     </div>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO9v3UBJDfOTFC_wcIK7UzhLRjBWQIJ9M&libraries=geometry,drawing,places"></script>
+<script src="{{asset("custom-js/googlemap.js")}}"></script>
+</body>
+</html>

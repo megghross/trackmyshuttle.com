@@ -60,7 +60,6 @@
 
 
 @section("styles")
-    <link href="{{asset("assets/vendors/linea-icons/styles.css")}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css")}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css")}}"
@@ -73,7 +72,6 @@
           rel="stylesheet" type="text/css"/>
     <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/css/ion.rangeSlider.min.css")}}"
           rel="stylesheet" type="text/css"/>
-    <link href="{{asset("assets/css/new_style.css")}}" rel="stylesheet" type="text/css"/>
 @endsection
 
 
@@ -93,7 +91,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.js"></script>
-
     <script src="{{asset("assets/vendors/theme-widgets/widgets.js")}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.2/jquery.bootstrap-touchspin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/js/ion.rangeSlider.min.js"></script>

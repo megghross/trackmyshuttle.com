@@ -26,8 +26,8 @@ canvas {
 
 .contact-details-tab .nav-item a.active {
     border-bottom-width: 0px !important;
-    border-top-: 0px #ffffff !important;
-    border-right-width: 0px !important;
+    border-top-: 0px #ffffff !important;  
+    border-right-width: 0px !important;        
 }
 
 
@@ -70,8 +70,8 @@ canvas {
     animation: spin 2s linear infinite;
 }
 .round_Image:hover{
-    background-color: #A5C8F2;
-}
+     background-color: #A5C8F2;
+ }
 .imageActive {
     background-color: #A5C8F2;
 }
@@ -108,7 +108,7 @@ canvas {
 }
 
 .dial-percent {
-    display: none;
+    display: none;    
     width: 45px;
     height: 30px;
     position: absolute;
@@ -190,7 +190,7 @@ span.righty p {
 }
 
 /*.plugin_back {*/
-/*width: 100% !important;*/
+    /*width: 100% !important;*/
 /*}*/
 
 #rightside-menuu, .width-100 {
@@ -219,4 +219,31 @@ span.righty p {
 
 .hotel-bigga {
     margin-top: -9px;
+}
+
+
+.profile-circle{
+    position: relative;
+    float: left;
+    display: block;
+    margin: 0 0 0 0;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #5899e4;
+    border-radius: 50%;
+    z-index: -1;
+    border: solid 2px;
+}
+.profile-circle span{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    margin-top: -9px;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
 }

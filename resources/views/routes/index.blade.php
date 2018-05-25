@@ -17,7 +17,10 @@
         <!-- =================================== -->
         <div class="widget-list">
             <div class="row">
-                @include("routes.fragments.routes");
+
+                <iframe src="{{route('iframe.routes')}}" width="100%" height="630"></iframe>
+
+{{--                @include("");--}}
 
 
                 {{--<iframe src="liveTracking/test.php" width="100%" height="630"></iframe>--}}
@@ -30,34 +33,27 @@
 
 
 @section("styles")
-    {{--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />--}}
-    {{--<title>Live Tracking</title>--}}
-
-
-    {{--<link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">--}}
-    <link rel="stylesheet" href="{{asset("css/bootstrap-colorpicker.min.css")}}">
-    <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}">
-    <link rel="stylesheet" href="{{asset("css/route.css")}}">
-    <script src="{{asset("js/jquery-3.2.1.min.js")}}"></script>
-    <script src="{{asset("js/bootstrap.min.js")}}"></script>
-    <script src="{{asset("js/bootstrap-colorpicker.min.js")}}"></script>
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.4/sweetalert2.css" rel="stylesheet" type="text/css"/>
 @endsection
 
 
 @section("scripts")
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+    <!-- Scripts -->
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.4/sweetalert2.min.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>--}}
+    {{--<script src="assets/vendors/charts/excanvas.js"></script>--}}
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/svg.js"></script>
 
-    <script src="{{asset("assets/js/theme.js")}}"></script>
-    <script src="{{asset("assets/js/custom.js")}}"></script>
-    <script src="{{asset("assets/js/svg.js")}}"></script>
+    {{--<script src="http://localhost:35729/livereload.js"></script>--}}
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCO9v3UBJDfOTFC_wcIK7UzhLRjBWQIJ9M&libraries=geometry,drawing,places"></script>
-    <script src="{{asset("custom-js/googlemap.js")}}"></script>
+
 
 @endsection

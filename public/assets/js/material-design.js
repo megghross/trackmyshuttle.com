@@ -1,6 +1,6 @@
 /*
-* Name:        Oscar
-* Written by: 	Unifato - (http://unifato.com)
+* Name:        Cuan-Chai Megghross
+* Written by: 	Megghross - (http://megghross.com)
 * Version:     1.0.0
 */
 

@@ -25,6 +25,11 @@ var speed = 100; // km/h
 var delay = 100;
 
 var infowindow;
+
+
+let URL = $("body").data("url");
+let BaseURL = $("body").data("baseurl") + '/';
+
 $(document).ready(function () {
 
 
@@ -100,15 +105,15 @@ function route_details(id) {
     });
     $(".route-details").html("");
     htmlStr = ' <button type="button" onclick="hideKeyBox()" class="hideKeyBox">X</button><table><caption><h4><a href="#">' + shuttleData[id].shuttleName + ' (' + shuttleData[id].routeName + ')</h4></a></caption' +
-        '<tr><td><img src="img/marker-Start.png"></td><td><h4>' + start_marker[0].customInfo.stopName + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
+        '<tr><td><img src="'+BaseURL+'img/marker-Start.png"></td><td><h4>' + start_marker[0].customInfo.stopName + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
     for (var i = 0; i < waypoint_array.length; i++) {
         if (waypoint_array[i].customInfo.type == 'Stop') {
-            htmlStr += '<tr><td><img src="img/marker-Stop.png"></td><td><h4>' + waypoint_array[i].customInfo.stopName + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
+            htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-Stop.png"></td><td><h4>' + waypoint_array[i].customInfo.stopName + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
         } else if (waypoint_array[i].customInfo.type == 'Waypoint') {
-            htmlStr += '<tr><td><img src="img/marker-Waypoint.png"></td><td><h4>' + waypoint_array[i].customInfo.stopName + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
+            htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-Waypoint.png"></td><td><h4>' + waypoint_array[i].customInfo.stopName + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
         }
     }
-    htmlStr += '<tr><td><img src="img/marker-End.png"></td><td><h4>' + end_marker[0].customInfo.stopName + '</h4>' + end_marker[0].customInfo.address + '</h4></td></tr></table>';
+    htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-End.png"></td><td><h4>' + end_marker[0].customInfo.stopName + '</h4>' + end_marker[0].customInfo.address + '</h4></td></tr></table>';
     $(".route-details").html(htmlStr);
 }
 
@@ -122,9 +127,9 @@ function route_details2(id) {
     });
     $(".route-details").html("");
     htmlStr = '<table><caption>Shuttle ' + id + '</caption' +
-        '<tr><td><img src="img/marker-start.png"></td><td><a href="#">' + start_marker[0].customInfo.address + '</a></td></tr>';
+        '<tr><td><img src="'+BaseURL+'img/marker-start.png"></td><td><a href="#">' + start_marker[0].customInfo.address + '</a></td></tr>';
     for (var i = 0; i < stop_array.length; i++) {
-        htmlStr += '<tr><td><img src="img/marker-' + stop_array[i].customInfo.type + '.png"></td><td><a href="#">' + stop_array[i].customInfo.address + '</a></td></tr>';
+        htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-' + stop_array[i].customInfo.type + '.png"></td><td><a href="#">' + stop_array[i].customInfo.address + '</a></td></tr>';
     }
     // htmlStr+='<tr><td><img src="img/marker-end.png"></td><td><a href="#">'+start_marker[0].customInfo.address+'</a></td></tr></table>';
     $(".route-details").html(htmlStr);
@@ -160,13 +165,14 @@ function wait(ms) {
 
 function loadMaps() {
     $.ajax({
-        url: '/api/shuttles',
+        url: URL,
         method: "GET",
         success: function (response) {
             for (i = 0; i < response.length; i++) {
+                debugger;
                 route = response[i];
                 for (j = 0; j < response[i].devices.length; j++) {
-                    var htmlStr = '<div class="route-box" data-routeid="' + (i + 1) + '" data-shuttleNumber="' + j + '" id="' + route.id + '"><a href="#"><img src="img/bus.png" alt="Routes"><div class="desc">' +
+                    var htmlStr = '<div class="route-box" data-routeid="' + (i + 1) + '" data-shuttleNumber="' + j + '" id="' + route.id + '"><a href="#"><img src="'+BaseURL+'img/bus.png" alt="Routes"><div class="desc">' +
                         route.devices[j].shuttleName + '</div></a></div>';
                     $(".routes-box").append(htmlStr);
                 }
@@ -189,13 +195,13 @@ function showOnMap(route, index) {
     if (route.wayPoints.length > 0) {
         for (l = 0; l < route.wayPoints.length; l++) {
             if (route.wayPoints[l].type == 'Start') {
-                startPoint = new google.maps.LatLng(route.wayPoints[l].latitude, route.wayPoints[l].longitude);
+                startPoint = new google.maps.LatLng(route.wayPoints[l].lat, route.wayPoints[l].lng);
             }
             else if (route.wayPoints[l].type == 'End') {
-                endPoint = new google.maps.LatLng(route.wayPoints[l].latitude, route.wayPoints[l].longitude);
+                endPoint = new google.maps.LatLng(route.wayPoints[l].lat, route.wayPoints[l].lng);
             }
             else {
-                markers.push({location: new google.maps.LatLng(route.wayPoints[l].latitude, route.wayPoints[l].longitude)});
+                markers.push({location: new google.maps.LatLng(route.wayPoints[l].lat, route.wayPoints[l].lng)});
 
             }
 
@@ -351,7 +357,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
                     }
 
                     var icon = {
-                        url: "img/marker-" + wayPoint.type + ".png",
+                        url: BaseURL+"img/marker-" + wayPoint.type + ".png",
                         scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                         origin: new google.maps.Point(0, 0), // origin
                         anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -425,7 +431,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
 
                 }
                 var icon = {
-                    url: "img/marker-end.png",
+                    url: BaseURL+"img/marker-end.png",
                     scaledSize: new google.maps.Size(icon_size, icon_size), // scaled size
                     origin: new google.maps.Point(0, 0), // origin
                     anchor: new google.maps.Point(parseInt(icon_size / 2), parseInt(icon_size / 2)), // anchor
@@ -456,7 +462,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
             debugger;
             for (k = 0; k < shuttleData.devices.length; k++) {
                 marker[id][k] = new google.maps.Marker({
-                    icon: "img/caricon.png",
+                    icon: BaseURL+"img/caricon.png",
                     map: map,
                     label: shuttleData.devices[k].shuttleName,
                     customInfo: {
@@ -884,14 +890,14 @@ function CenterControl(controlDiv, map) {
     // controlText.style.fontSize = '16px';
     // controlText.style.lineHeight = '38px';
     //
-    controlText.src = "img/bus.png";
+    controlText.src = BaseURL+"img/bus.png";
     controlText.height = "64";
     // controlText.innerHTML = 'Shuttles Info';
 
     controlUI.appendChild(controlText);
 
     var anotherText = document.createElement('img');
-    anotherText.src = "img/gps.png";
+    anotherText.src = BaseURL+"img/gps.png";
     anotherText.height = "64";
 
     anotherUI.appendChild(anotherText);

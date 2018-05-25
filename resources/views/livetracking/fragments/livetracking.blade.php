@@ -1,4 +1,17 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Live Tracking</title>
+    <link rel="stylesheet" href="{{asset("assets/livetracking/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/livetracking/css/bootstrap-colorpicker.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/livetracking/css/font-awesome.min.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/livetracking/css/style.css")}}">
+    <script src="{{asset("assets/livetracking/js/jquery-3.2.1.min.js")}}"></script>
+    <script src="{{asset("assets/livetracking/js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("assets/livetracking/js/bootstrap-colorpicker.min.js")}}"></script>
+</head>
+<body  data-url="{{route("util.getShuttles")}}" data-baseurl="{{asset("assets/livetracking/")}}">
 <div class="routes-edit-page-container">
     <!--    <div class="loader"></div>-->
     <div class="routes-edit-page-container">
@@ -7,7 +20,7 @@
         <div id="map"></div>
 
         <div class="route-new">
-            <a href="#"><img src="img/busses.png" alt="New">
+            <a href="#"><img src="{{asset("assets/livetracking/img/busses.png")}}" alt="New">
                 <div class="desc">Show all shuttles</div></a>
         </div>
         <div class="routes-box">
@@ -79,4 +92,7 @@
         </div>
     </div>
 </div>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM&libraries=geometry,drawing,places"></script>
+<script src="{{asset("custom-js/GoogleMapsV2.js")}}"></script>
+</body>
+</html>

@@ -34,23 +34,22 @@ class UtilityController extends Controller
     public function GetShuttles()
     {
         try {
-            $this->db->fetch_data('*', 'live_routes_data');
-            $routesData = $this->db->getResultSet();
-            $dataset = array();
 
+            $routesData = Route::get();
+
+            $dataset = array();
             $i = 0;
             foreach ($routesData as $route) {
-                $this->db->fetch_data('address, type, name, latitude, longitude', 'live_route_detail', 'where routeId = ' . $route->id);
-                $route->wayPoints = $this->db->getResultSet();
-
+                $route->wayPoints = Marker::where('route', $route->name)->get();
+                $route->devices = Device::where("routeId", $route->id)->get();
                 $dataset[$i] = $route;
                 $i++;
             }
+
             return response()->json($dataset);
 
         } catch (Exception $e) {
             return response()->json(['status' => false, 'message' => 'Some problem inserting data to database', 'exception' => $e->getMessage()]);
-
         }
     }
 

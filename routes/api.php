@@ -30,8 +30,10 @@ Route::name("util.")->group(function(){
 
 
 Route::prefix("routes")->name("routes.")->group(function(){
-    Route::post('/load', "RoutesController@LoadData")->name("load");
-    Route::post('/save', "RoutesController@SaveData")->name("save");
+    Route::post('', "RoutesController@ProcessData")->name("main");
+//    Route::post('/save', "RoutesController@SaveData")->name("save");
+//    Route::post('/edit', "RoutesController@SaveData")->name("edit");
+//    Route::post('/delete', "RoutesController@SaveData")->name("delete");
 });
 
 

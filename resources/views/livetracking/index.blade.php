@@ -19,8 +19,8 @@
             <div class="row">
 
 
-                @include("livetracking.fragments.livetracking");
-                {{--<iframe src="liveTracking/test.php" width="100%" height="630"></iframe>--}}
+                {{--@include("livetracking.fragments.livetracking");--}}
+                <iframe src="{{route("iframe.livetracking")}}" width="100%" height="630"></iframe>
 
             </div><!-- /.row -->
         </div><!-- /.widget-list -->
@@ -52,7 +52,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
 
     <script src="{{asset("assets/js/theme.js")}}"></script>
-    <script src="{{asset("custom-js/dashboard.js")}}"></script>
+{{--    <script src="{{asset("custom-js/dashboard.js")}}"></script>--}}
     <script src="{{asset("assets/js/custom.js")}}"></script>
     <script src="{{asset("assets/js/svg.js")}}"></script>
 

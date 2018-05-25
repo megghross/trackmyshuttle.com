@@ -30,6 +30,17 @@ class RoutesController extends Controller
     }
 
 
+
+    public function ProcessData(Request $request){
+        if($request->input("action")=="load"){
+            return $this->LoadData();
+        }
+        else if($request->input("action")=="save"){
+            return $this->SaveData($request);
+        }
+    }
+
+
     //for loading data to maps
     public function LoadData()
     {
