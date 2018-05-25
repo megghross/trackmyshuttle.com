@@ -1,0 +1,234 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+a[href^="https://maps.google.com/maps"] {
+    display: none !important
+}
+
+.clearfix::before, .clearfix::after {
+    content: "";
+    display: inline-block;
+}
+
+.clearfix ::after {
+    clear: both;
+}
+
+.routes-edit-page-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.route-new {
+    position: absolute;
+    float: right;
+    right: 5px;
+    margin: 0;
+    padding: 10px;
+    top: calc(100% - 105px);
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.routes-box {
+    position: absolute;
+    float: right;
+    right: 80px;
+    top: calc(100% - 105px);
+    margin: 0;
+    padding: 0;
+    max-width: calc(100% - 130px);
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.route-box {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+}
+
+.route-new img, .route-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid #ccc;
+}
+
+.route-new img:hover, .route-box img:hover {
+    border: 2px solid #555;
+}
+
+.route-details {
+    display: none;
+    position: absolute;
+    margin: 0;
+    opacity: 0.85;
+    float: left;
+    left: 5px;
+    top: 5px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    max-height: 500px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.route-details table caption {
+    text-align: center;
+}
+
+.route-details table tr {
+    cursor: pointer;
+}
+
+.route-details table tr td {
+    padding: 5px;
+    font-size: 12px;
+    color: #007399;
+    vertical-align: middle;
+}
+
+.route-details table tr td:first-child {
+    width: 30px;
+    text-align: center;
+}
+
+.route-details table tr td:last-child {
+    width: 270px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.route-details img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+.route-details h4 {
+    color: #000;
+    margin: 0;
+}
+
+.route-create {
+    display: none;
+    position: absolute;
+    margin: 0;
+    float: left;
+    left: 5px;
+    opacity: 0.9;
+    top: 5px;
+    padding: 10px;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.input-group {
+    margin-bottom: 5px;
+}
+
+.route-create .route-point-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.route-create .route-point-list::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+.route-create .route-point-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+.route-create .route-point-list::-webkit-scrollbar-thumb {
+    background-color: #b4b4b4;
+}
+
+.route-create .route-point-list .input-group input {
+    border-right: none;
+}
+
+.route-point-search {
+    cursor: pointer;
+}
+
+.route-point-remove {
+    cursor: pointer;
+}
+
+.route-create .route-point-add {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.route-create-bottom button:first-child {
+    float: left;
+    width: 49%;
+}
+
+.route-create-bottom button:last-child {
+    float: right;
+    width: 49%;
+}
+
+.loader {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: calc(50% - 40px);
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #3498db;
+    width: 80px;
+    height: 80px;
+    z-index: 5000;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
