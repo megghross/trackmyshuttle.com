@@ -32,7 +32,9 @@ Route::get('/shuttles', 'ShuttlesController@index')->name('shuttles');
 Route::get('/support', 'ShuttlesController@index')->name('support');
 
 
-
+Route::get('/test', function(){
+    return view('test');
+});
 
 
 

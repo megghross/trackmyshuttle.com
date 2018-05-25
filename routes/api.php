@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::name("util.")->group(function(){
     Route::get('/shuttles', "UtilityController@GetShuttles")->name("getShuttles");
 
-    Route::post('/update', "UtilityController@UpdateLocation")->name("update");
+    Route::post('/updatelocation', "UtilityController@UpdateLocation")->name("update");
 
 
 });

@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Abraham\TwitterOAuth\Response;
 use App\Helpers\ETAHelpers;
+use App\Helpers\MapHelpers;
+use App\Helpers\NearbyThingsHelper;
 use App\Models\Device;
 use App\Models\Marker;
 use App\Models\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
+use stdClass;
 
 class UtilityController extends Controller
 {
@@ -61,23 +64,32 @@ class UtilityController extends Controller
         $device_text = $request->input("device_text");
         $device = Device::where("serialNumber", $serialNumber)->first();
         $route = Route::where('id', $device->routeId)->first();
-        $coordinates =  explode("\n", $route->coordinates);
         $markers = Marker::where('route', $route->name)->get()->toArray();
-        $EtaHelper = new ETAHelpers();
-        $point = array($lat,  $long);
-//        List($min, $index) = $EtaHelper->getMinimumDistance($point, $coordinates);
-        List($min, $index) = $EtaHelper->getMinimumDistanceFromMarkers($point, $markers);
-//        dd($min, $index);
+//        $coordinates =  explode("\n", $route->coordinates);
+        $MapHelper = new MapHelpers($markers);
+        $nearestMarker = $MapHelper->NearestPointOfRoute($lat, $long);
+        $NearbyPlaces = new NearbyThingsHelper($lat, $long, 1500);
+        $nearbyStation = $NearbyPlaces->GetNearestStation();
+        $offRoute = $MapHelper->DetectOffRoute($nearestMarker);
 
-        if($index>0){
-            $markers = array_slice($markers, 1, (Count($markers) - 1));
+        $resp = new StdClass();
+
+        if($offRoute){
+            $resp->msg = "Shuttle is away from its actual Route";
+        }
+        else{
+            $resp->msg = "Shuttle moving on its assigned Route";
         }
 
-        $markers[0]["lat"] = $point[0];
-        $markers[0]["lng"] = $point[1];
-        $eta = $EtaHelper->getGoogleETA($markers);
+        $resp->probablity = $MapHelper->FuellingProbablity($nearestMarker, $nearbyStation);
 
-        dd(($eta/60)." mins");
+        $resp->result = 1;
+        $resp->routeDistance = $nearestMarker->distance;
+        $resp->gas_stationDistance = $nearbyStation->distance;
+
+        return response()->json($resp);
+
+
 
     }
 }

@@ -65,7 +65,7 @@ class ETAHelpers
             return $stop["lat"] . ',' . $stop["lng"];
         }, array_slice($markers, 1, (Count($markers) - 2))));
 
-        $str = $this->GetJson("https://maps.googleapis.com/maps/api/directions/json?origin=" . urlencode($markers[0]["lat"] . "," . $markers[0]["lng"]) . "&destination=" . urlencode($markers[(Count($markers) - 1)]["lat"]. "," . $markers[(Count($markers) - 1)]["lng"]) . "&waypoints=" . urlencode($waypoints) . "&key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM");
+        $str = GetJson("https://maps.googleapis.com/maps/api/directions/json?origin=" . urlencode($markers[0]["lat"] . "," . $markers[0]["lng"]) . "&destination=" . urlencode($markers[(Count($markers) - 1)]["lat"]. "," . $markers[(Count($markers) - 1)]["lng"]) . "&waypoints=" . urlencode($waypoints) . "&key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM");
         $data = json_decode($str)->routes[0];
         $time=0;
         foreach ($data->legs as $leg){
@@ -75,64 +75,7 @@ class ETAHelpers
         return $time;
     }
 
-     public function getMinimumDistance($point, $array){
-        $min = 99999;
-        $index = -1;
-        $i=0;
-        foreach ($array as $pt){
-            $pt = explode(",", $pt);
-            $distance = $this->distance($point[0], $point[1], $pt[0], $pt[1]);
-            if($distance<$min){
-                $min = $distance;
-                $index = $i;
-            }
-            $i++;
-        }
-        return array($min, $index);
-     }
 
-     public function getMinimumDistanceFromMarkers($point, $array){
-        $min = 99999;
-        $index = -1;
-        $i=0;
-        foreach ($array as $pt){
-            $distance = $this->distance($point[0], $point[1], $pt["lat"], $pt["lng"]);
-            if($distance<$min){
-                $min = $distance;
-                $index = $i;
-            }
-            $i++;
-        }
-        return array($min, $index);
-     }
-
-    private function distance($lat1, $lon1, $lat2, $lon2, $unit="K") {
-
-        $theta = $lon1 - $lon2;
-        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-        $dist = acos($dist);
-        $dist = rad2deg($dist);
-        $miles = $dist * 60 * 1.1515;
-        $unit = strtoupper($unit);
-
-        if ($unit == "K") {
-            return ($miles * 1.609344);
-        } else if ($unit == "N") {
-            return ($miles * 0.8684);
-        } else {
-            return $miles;
-        }
-    }
-    private function GetJson($url)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $data = curl_exec($ch);
-        curl_close($ch);
-        return $data;
-    }
 
 
 }
