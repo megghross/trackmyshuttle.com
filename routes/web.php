@@ -23,6 +23,9 @@ Route::get('/', 'HomeController@index')->name("dashboard")->middleware("auth");
 Route::get('/live-tracking', 'LiveTrackingController@index')->name('live-tracking');
 
 
+Route::get('/off-route', 'OffRouteController@index')->name('off-route');
+
+
 Route::get('/routes', 'RoutesController@index')->name('routes');
 
 
@@ -48,6 +51,10 @@ Route::prefix("iframe")->name("iframe.")->group(function() {
         return view('livetracking.fragments.livetracking');
     })->name("livetracking");
 
+
+    Route::get('/offroute', function(){
+		return view('offroute.fragments.offroute');
+	})->name("offroute");
 
 });
 

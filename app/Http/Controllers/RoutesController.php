@@ -35,7 +35,7 @@ class RoutesController extends Controller
         if($request->input("action")=="load"){
             return $this->LoadData();
         }
-        else if($request->input("action")=="save"){
+        else if($request->input("action")=="add"){
             return $this->SaveData($request);
         }
     }

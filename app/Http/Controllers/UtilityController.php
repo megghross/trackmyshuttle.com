@@ -73,7 +73,7 @@ class UtilityController extends Controller
         $resp = new StdClass();
 
         if($offRoute){
-            $resp->msg = "Shuttle is away from its actual Route";
+            $resp->msg = "Away from assigned route.";
         }
         else{
             $resp->msg = "Shuttle moving on its assigned Route";

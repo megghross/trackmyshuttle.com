@@ -22,6 +22,15 @@
                 </a>
             </li>
 
+            <li class="{{isActive("off-route")}}">
+                <a class="bluer" href="{{Route("off-route")}}">
+                    <i class="list-icon feather feather-navigation"></i>
+                    <span class="hide-menu">
+						Off Route Simulation
+					</span>
+                </a>
+            </li>
+
             <li class="{{isActive("routes")}}">
                 <a class="bluer" href="{{Route("routes")}}">
                     <i class="list-icon feather feather-map"></i>

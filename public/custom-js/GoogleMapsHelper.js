@@ -2,6 +2,9 @@
 class MapHelper {
     constructor(Route) {
         this.Route = Route;
+        this.time = new Date();
+        this.time.setSeconds(this.time.getSeconds() - 10);
+        this.offRouteMessage = 'The vehicle is off route.';
 
     }
 
@@ -98,6 +101,55 @@ class MapHelper {
     };
 
 
+    DetectOffRoute(marker){
+
+        let nearestRoutePoint = this.NearestPointOfRoute(marker);
+
+        if(nearestRoutePoint.distance>40){
+            let now = new Date();
+            let seconds = (now.getTime() - this.time.getTime()) / 1000;
+
+            if(seconds>5){
+                this.time = new Date();
+                this.RequestToServerForDetail(marker);
+                return this.offRouteMessage;
+            }
+            return this.offRouteMessage;
+        }
+
+
+        return "Vehicle is on its assigned route";
+
+    }
+
+
+
+    RequestToServerForDetail(marker){
+        let msg = 'Off Route';
+        let mapHelper = this;
+        $.ajax({
+           url: $("body").data("offroute"),
+            "method": "POST",
+            data:{
+                "serialNumber":marker.customInfo.serialNo,
+                "lat" : marker.position.lat(),
+                "long": marker.position.lng()
+            },
+            success: function(data){
+                // data = JSON.parse(data);
+                let now = new Date();
+                mapHelper.offRouteMessage = "Message:"+ data.msg +
+                    "<br> Probability of Fueling : " + data.probablity  +  "%.</br> Distance from Route:"
+                    +Math.round(data.routeDistance)+ " meters. </br>Distance from Gas Station:"
+                    +Math.round(data.gas_stationDistance)+" meters.</br>Synced Time : "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+
+
+            }
+
+        });
+
+    }
+
 
 
     CalculateETA(markerPoint, stopPoint, km_h){
@@ -117,13 +169,35 @@ class MapHelper {
                     var time = 0;
                     var distance = 0;
                     for(let li = markerLegIndex; li<=stopLegIndex; li++){
-                        for(let si= markerStepIndex; si<=stopStepIndex; si++){
-                            time = time + route.legs[li].steps[si].duration.value;
-                            distance = distance + route.legs[li].steps[si].distance.value;
-                            if(si==markerStepIndex && li==markerLegIndex){
-                                distance -= MapHelper.FindDistance(route.legs[li].steps[si].path[0].lat(), route.legs[li].steps[si].path[0].lng(), route.legs[li].steps[si].path[markerPointIndex].lat(), route.legs[li].steps[si].path[markerPointIndex].lng())
+
+                        if(markerLegIndex==li){
+                            for(let si= markerStepIndex; si<route.legs[li].steps.length; si++){
+                                time = time + route.legs[li].steps[si].duration.value;
+                                distance = distance + route.legs[li].steps[si].distance.value;
+                                if(si==markerStepIndex && li==markerLegIndex){
+                                    distance -= MapHelper.FindDistance(route.legs[li].steps[si].path[0].lat(), route.legs[li].steps[si].path[0].lng(), route.legs[li].steps[si].path[markerPointIndex].lat(), route.legs[li].steps[si].path[markerPointIndex].lng())
+                                }
                             }
                         }
+                        else if(markerLegIndex==li && stopLegIndex==li){
+                            for(let si= markerStepIndex; si<=stopStepIndex; si++){
+                                time = time + route.legs[li].steps[si].duration.value;
+                                distance = distance + route.legs[li].steps[si].distance.value;
+                                if(si==markerStepIndex && li==markerLegIndex){
+                                    distance -= MapHelper.FindDistance(route.legs[li].steps[si].path[0].lat(), route.legs[li].steps[si].path[0].lng(), route.legs[li].steps[si].path[markerPointIndex].lat(), route.legs[li].steps[si].path[markerPointIndex].lng())
+                                }
+                            }
+                        }
+                        else{
+                            for(let si= 0; si<route.legs[li].steps.length; si++){
+                                time = time + route.legs[li].steps[si].duration.value;
+                                distance = distance + route.legs[li].steps[si].distance.value;
+                                if(si==markerStepIndex && li==markerLegIndex){
+                                    distance -= MapHelper.FindDistance(route.legs[li].steps[si].path[0].lat(), route.legs[li].steps[si].path[0].lng(), route.legs[li].steps[si].path[markerPointIndex].lat(), route.legs[li].steps[si].path[markerPointIndex].lng())
+                                }
+                            }
+                        }
+
                     }
                     var timeinmilliseconds = ((distance / 1000) / km_h) * 60 * 60 * 1000;
                     var time = this.getTime(timeinmilliseconds);
