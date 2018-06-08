@@ -444,7 +444,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
                     }
                 });
                 marker[id][k].setPosition(mPosition);
-                if(shuttleData.devices[k].shuttleName=="Shuttle 33"){
+                if(shuttleData.devices[k].shuttleName=="Shuttle 3"){
                     arrayOfLatLng = arrayLatLngId1;
                 }
 
