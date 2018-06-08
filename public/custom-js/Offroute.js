@@ -61,7 +61,7 @@ $(document).ready(function () {
         for (var j = 0; j < Markers[id].length; j++) {
             Markers[id][j].setMap(map);
         }
-        route_details(id);
+        route_details(id, shuttleNumber);
     });
     $(".route-new a").click(function () {
         for (var i = 1; i < polyline.length; i++) {
@@ -125,7 +125,8 @@ function initMap() {
 }
 
 
-function route_details(id) {
+function route_details(id, shuttleNumber) {
+    debugger;
     $(".route-details").show();
     var start_marker = Markers[id].filter(function (obj) {
         return obj.customInfo.type == 'Start' && obj.customInfo.routeId == id;
@@ -137,7 +138,7 @@ function route_details(id) {
         return obj.customInfo.type == 'End' && obj.customInfo.routeId == id;
     });
     $(".route-details").html("");
-    htmlStr = ' <button type="button" onclick="hideKeyBox()" class="hideKeyBox">X</button><table><caption><h4><a href="#">' + shuttleData[id].shuttleName + ' (' + shuttleData[id].routeName + ')</h4></a></caption' +
+    htmlStr = ' <button type="button" onclick="hideKeyBox()" class="hideKeyBox">X</button><table><caption><h4><a href="#">' + shuttleData[id].devices[shuttleNumber].shuttleName + ' (' + shuttleData[id].name + ')</h4></a></caption' +
         '<tr><td><img src="'+BaseURL+'img/marker-Start.png"></td><td data-routeid="'+start_marker[0].customInfo.routeId+'" data-markerid="'+start_marker[0].customInfo.markerId+'" ><h4>' + start_marker[0].customInfo.stopName + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
     for (var i = 0; i < waypoint_array.length; i++) {
 

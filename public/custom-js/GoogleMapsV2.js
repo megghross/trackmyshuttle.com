@@ -59,7 +59,7 @@ $(document).ready(function () {
         for (var j = 0; j < Markers[id].length; j++) {
             Markers[id][j].setMap(map);
         }
-        route_details(id);
+        route_details(id, shuttleNumber);
     });
     $(".route-new a").click(function () {
         for (var i = 1; i < polyline.length; i++) {
@@ -123,7 +123,7 @@ function initMap() {
 }
 
 
-function route_details(id) {
+function route_details(id, shuttleNumber) {
     $(".route-details").show();
     var start_marker = Markers[id].filter(function (obj) {
         return obj.customInfo.type == 'Start' && obj.customInfo.routeId == id;
@@ -135,10 +135,10 @@ function route_details(id) {
         return obj.customInfo.type == 'End' && obj.customInfo.routeId == id;
     });
     $(".route-details").html("");
-    htmlStr = ' <button type="button" onclick="hideKeyBox()" class="hideKeyBox">X</button><table><caption><h4><a href="#">' + shuttleData[id].shuttleName + ' (' + shuttleData[id].routeName + ')</h4></a></caption' +
+    htmlStr = ' <button type="button" onclick="hideKeyBox()" class="hideKeyBox">X</button><table><caption><h4><a href="#">' + shuttleData[id].devices[shuttleNumber].shuttleName + ' (' + shuttleData[id].name + ')</h4></a></caption' +
         '<tr><td><img src="'+BaseURL+'img/marker-Start.png"></td><td data-routeid="'+start_marker[0].customInfo.routeId+'" data-markerid="'+start_marker[0].customInfo.markerId+'" ><h4>' + start_marker[0].customInfo.stopName + '</h4>' + start_marker[0].customInfo.address + '</td></tr>';
     for (var i = 0; i < waypoint_array.length; i++) {
-        debugger;
+
         if (waypoint_array[i].customInfo.type == 'Stop') {
             htmlStr += '<tr><td><img src="'+BaseURL+'img/marker-Stop.png"></td><td data-routeid="'+waypoint_array[i].customInfo.routeId+'" data-markerid="'+waypoint_array[i].customInfo.markerId+'"><h4>' + waypoint_array[i].customInfo.stopName + '</h4>' + waypoint_array[i].customInfo.address + '</td></tr>';
         } else if (waypoint_array[i].customInfo.type == 'Waypoint') {
@@ -626,7 +626,6 @@ function RegisterClickEvent(stopMarker2, show, id) {
 
             if (opened) {
 
-
                 EtaMarker = thisMarker;
                 EtaRouteId = id;
                 showETA("Loading");
@@ -766,7 +765,7 @@ function etaUpdatev2(coords, targetIndex, marker, id, km_h) {
 function showETA(EtaMessage) {
     $(".eta-details").show();
     $(".eta-details").html("");
-    htmlStr = '<button type="button" onclick="hideEta()" class="hideKeyBox">X</button><table><caption>Estimated Time Of Arrival</caption' +
+    htmlStr = '<button type="button" onclick="hideEta()" class="hideKeyBox">X</button><table><caption>ETA to '+EtaMarker.customInfo.stopName+'</caption' +
         '<tr><td id="etaMessage">' + EtaMessage + '</td></tr>';
 
     $(".eta-details").html(htmlStr);
