@@ -55,8 +55,7 @@ class UtilityController extends Controller
 
 
     public function UpdateLocation(Request $request){
-
-        $serialNumber = $request->input("serialNumber");
+    	$serialNumber = $request->input("serialNumber");
         $lat = $request->input("lat");
         $long = $request->input("long");
         $locationdatetime = $request->input("locationdatetime");

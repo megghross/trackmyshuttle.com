@@ -93,6 +93,8 @@
     </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM&libraries=geometry,drawing,places"></script>
+
+<script src="{{asset("custom-js/GoogleMapsHelper.js")}}"></script>
 <script src="{{asset("custom-js/GoogleMapsV2.js")}}"></script>
 </body>
 </html>
