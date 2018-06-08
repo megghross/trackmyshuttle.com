@@ -113,10 +113,9 @@ class MapHelper {
                 this.RequestToServerForDetail(marker);
                 return this.offRouteMessage;
             }
-
             return "Vehicle is on its assigned route";
         }
-
+        return this.offRouteMessage;
     }
 
 
