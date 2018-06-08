@@ -102,23 +102,20 @@ class MapHelper {
 
 
     DetectOffRoute(marker){
+        let now = new Date();
+        let seconds = (now.getTime() - this.time.getTime()) / 1000;
 
-        let nearestRoutePoint = this.NearestPointOfRoute(marker);
+        if(seconds>5){
+            let nearestRoutePoint = this.NearestPointOfRoute(marker);
 
-        if(nearestRoutePoint.distance>40){
-            let now = new Date();
-            let seconds = (now.getTime() - this.time.getTime()) / 1000;
-
-            if(seconds>5){
+            if(nearestRoutePoint.distance>40){
                 this.time = new Date();
                 this.RequestToServerForDetail(marker);
                 return this.offRouteMessage;
             }
-            return this.offRouteMessage;
+
+            return "Vehicle is on its assigned route";
         }
-
-
-        return "Vehicle is on its assigned route";
 
     }
 
