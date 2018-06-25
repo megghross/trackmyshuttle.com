@@ -57,7 +57,7 @@ else {
 	  <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">	
 		<li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" > <div class="iconset top-menu-toggle-white"></div> </a> </li>		 
 	  </ul>
-	  <a href="/dashboard"><img src="plus/img/logo3.png" class="logo" alt=""  data-src="plus/img/logo3.png" data-src-retina="plus/img/logo3.png" width="180" height="35" style="margin-left: 30px; margin-top: 10px;"/></a>
+	  <a href="/staging/trackmyshuttle/public/dashboard"><img src="plus/img/logo3.png" class="logo" alt=""  data-src="plus/img/logo3.png" data-src-retina="plus/img/logo3.png" width="180" height="35" style="margin-left: 30px; margin-top: 10px;"/></a>
 	</div>
 	<div class="header-quick-nav" >
 	<div class="pull-left"> 
