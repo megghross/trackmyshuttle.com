@@ -23,7 +23,7 @@
         
 	/*	Triteq AWS Development	*/
 	
-	$islive = 0;
+	$islive = 1;
 
 	if ($islive==0){
 		$username = "root"; 
@@ -32,10 +32,10 @@
 	    $dbname   = "trackmyshuttle";
 	}
 	else {
-		$username = "root"; 
-		$password = "tMs@333!"; 		
-		$host     = "localhost"; //"34.229.9.115"; 
-	    $dbname   = "sky";    			
+		$username = "dbuclients";
+		$password = "Vclients20755!v";
+		$host     = "159.65.228.181"; //"34.229.9.115";
+	    $dbname   = "dbclients_trackmyshuttle";
 	}
 
 
