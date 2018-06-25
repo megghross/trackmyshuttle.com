@@ -1,0 +1,90 @@
+123.238.186.16,March 3, 2017, 3:19 am,triteq.aws@gmail.com,users.php,Update Users : dmichelson@triteqlock.com
+123.238.186.16,March 3 2017 3:20 am,triteq.aws@gmail.com,users.php,Update Users : dmichelson@triteqlock.com
+123.238.186.16,,triteq.aws@gmail.com,users.php,Update Users : calin@triteqlock.com
+123.238.186.16,March 3 2017 3:22 am,triteq.aws@gmail.com,users.php,Update Users : dan@triteqlock.com
+123.238.186.16,March 3 2017 3:45 am,triteq.aws@gmail.com,inventory.php,Module erase : ZAA00010
+123.238.186.16,March 3 2017 3:58 am,triteq.aws@gmail.com,inventory.php,Update Device Old Period 1 Min - New Period : 5 Min
+123.238.186.16,March 3 2017 3:59 am,triteq.aws@gmail.com,inventory.php,Update Device Old Period 5 Min - New Period : 60 Min
+123.238.186.16,March 3 2017 4:19 am,triteq.aws@gmail.com,location.php,Add Module : ZAA00018
+123.238.186.16,March 3 2017 4:21 am,triteq.aws@gmail.com,inventory.php,Module delete : ZAA00019
+123.238.186.16,March 3 2017 4:22 am,triteq.aws@gmail.com,inventory.php,Module delete : ZAA00018
+123.238.186.16,March 3 2017 4:22 am,triteq.aws@gmail.com,location.php,Add Module : ZAA00025
+123.238.186.16,March 3 2017 4:22 am,triteq.aws@gmail.com,location.php,Add Module : ZAA00026
+123.238.186.16,March 3 2017 4:22 am,triteq.aws@gmail.com,inventory.php,Module erase : ZAA00025
+123.238.186.16,March 3 2017 4:25 am,triteq.aws@gmail.com,inventory.php,Module Erase : ZAA00025
+123.238.186.16,March 3 2017 4:25 am,triteq.aws@gmail.com,inventory.php,Module Erase : ZAA00026
+123.238.186.16,March 3 2017 4:41 am,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - Imperial Coffee, New Loc - Imperial Coffee (HQ)
+123.238.186.16,March 3 2017 4:41 am,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - Imperial Coffee, Old Loc - Imperial Coffee (HQ) :: New Org - TriTeq, New Loc - Triteq HQ
+69.47.72.149,March 3 2017 6:13 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 60 Min - New Period : 60 Min
+69.47.72.149,March 3 2017 6:13 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 60 Min - New Period : 1 Min
+173.167.138.81,March 3 2017 10:18 am,triteq.aws@gmail.com,users.php,Update Users : calin@triteqlock.com
+71.201.189.189,March 3 2017 3:54 pm,triteq.aws@gmail.com,users.php,Update Users : calin@triteqlock.com
+71.201.189.189,March 5 2017 8:38 pm,triteq.aws@gmail.com,inventory.php,Module Delete : ZAA00025
+71.201.189.189,March 5 2017 8:38 pm,triteq.aws@gmail.com,inventory.php,Module Delete : ZAA00026
+71.201.189.189,March 6 2017 11:02 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 5 Min - New Period : 1 Min
+71.201.189.189,March 6 2017 11:06 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 1 Min - New Period : 5 Min
+173.167.138.81,March 8 2017 12:34 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 8 2017 12:34 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 8 2017 12:34 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 8 2017 12:34 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 8 2017 12:35 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 8 2017 12:35 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:28 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:28 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:28 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:28 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:28 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:29 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:29 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:29 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:30 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:30 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 3:30 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 9 2017 4:13 pm,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+71.201.189.189,March 13 2017 11:26 am,triteq.aws@gmail.com,location.php,Module Add : XXX00001
+71.201.189.189,March 13 2017 11:27 am,triteq.aws@gmail.com,inventory.php,Module Delete : XXX00001
+71.201.189.189,March 13 2017 12:50 pm,triteq.aws@gmail.com,location.php,Module Add : ZAB00011
+173.167.138.81,March 13 2017 4:00 pm,dmichelson@triteqlock.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - Imperial Coffee, New Loc - Imperial Coffee (HQ)
+173.167.138.81,March 14 2017 8:28 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00012
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00013
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00014
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00015
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00016
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00017
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00018
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00019
+71.201.189.189,March 15 2017 4:00 pm,triteq.aws@gmail.com,location.php,Module Add : ZAA00020
+173.167.138.81,March 16 2017 10:39 am,dan@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 16 2017 10:40 am,dan@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 16 2017 10:40 am,dan@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 16 2017 10:40 am,dan@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:09 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:09 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:09 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:09 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:10 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:10 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:10 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:10 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+173.167.138.81,March 20 2017 9:10 am,dmichelson@triteqlock.com,inventory.php,Update Device Old Period 1 Min - New Period : 1 Min
+71.201.189.189,March 22 2017 2:49 pm,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - SV365 Technologies, New Loc - SV365 Technologies (HQ)
+173.167.138.81,March 22 2017 3:30 pm,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - Delfrio, New Loc - Delfrio (HQ)
+173.167.138.81,March 22 2017 3:30 pm,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - Delfrio, Old Loc - Delfrio (HQ) :: New Org - Delfrio, New Loc - Delfrio (HQ)
+173.167.138.81,March 22 2017 3:36 pm,triteq.aws@gmail.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - Burch Food Services, New Loc - Burch Food Services (HQ)
+71.201.189.189,March 22 2017 3:48 pm,triteq.aws@gmail.com,users.php,Update Users : DObrien@BurchFood.com
+173.167.138.81,March 29 2017 1:25 pm,dan@triteqlock.com,users.php,Update Users : bill@triteqlock.com
+173.167.138.81,March 29 2017 1:31 pm,dan@triteqlock.com,users.php,Update Users : dan@burntone.com
+173.167.138.81,March 31 2017 9:17 am,dan@triteqlock.com,users.php,Update Users : bill@triteqlock.com
+71.201.189.189,April 5 2017 11:00 am,triteq.aws@gmail.com,users.php,Update Users : calin@triteqlock.com
+173.167.138.81,April 5 2017 11:57 am,calin@triteqlock.com,inventory.php,Moduel Assign : Old Org - TriTeq, Old Loc - Triteq HQ :: New Org - Delfrio, New Loc - Delfrio (HQ)
+71.201.189.189,April 8 2017 5:20 am,triteq.aws@gmail.com,users.php,Update Users : david.piccuta@gmail.com
+71.201.189.189,April 8 2017 5:20 am,triteq.aws@gmail.com,users.php,Update Users : john.dam@dellfrio.com
+71.201.189.189,April 10 2017 11:09 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 5 Min - New Period : 10 Min
+71.201.189.189,April 10 2017 11:09 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 10 Min - New Period : 10 Min
+71.201.189.189,April 10 2017 11:10 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 10 Min - New Period : 30 Min
+71.201.189.189,April 11 2017 6:54 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 30 Min - New Period : 5 Min
+71.201.189.189,April 11 2017 7:57 pm,triteq.aws@gmail.com,inventory.php,Update Device Old Period 5 Min - New Period : 1 Min
+76.16.195.110,April 19 2017 5:37 pm,dan@triteqlock.com,users.php,Update Users : bill@triteqlock.com
+174.197.9.237,April 19 2017 6:00 pm,dan@triteqlock.com,users.php,Update Users : bill@triteqlock.com
+123.238.186.16,April 25 2017 1:34 am,triteq.aws@gmail.com,location.php,Module Add : ZAA10001

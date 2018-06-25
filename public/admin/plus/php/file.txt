@@ -1,0 +1,66 @@
+
+
+====================================
+Log started, 03/01/2018 09:29:43
+====================================
+
+SELECT  * FROM device
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Undefined index: search at E:\PHPProject\freshtraq.com\dhtmlx\apps\connector\base_connector.php line 191
+
+Done in 0.022809028625488s
+
+
+
+====================================
+Log started, 03/01/2018 09:30:39
+====================================
+
+SELECT  * FROM device
+
+Done in 0.011646032333374s
+

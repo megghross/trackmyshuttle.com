@@ -1,0 +1,58 @@
+[
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Courtney Walsh",
+   "Vehicle_rating": "5",
+   "License": "DC1000",
+   "Device": "Motorola 10000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Courtney Walsh",
+   "Vehicle_rating": "4",
+   "License": "DC2000",
+   "Device": "Motorola 20000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Courtney Walsh",
+   "Vehicle_rating": "3",
+   "License": "DC3000",
+   "Device": "Motorola 30000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Courtney Walsh",
+   "Vehicle_rating": "2",
+   "License": "DC4000",
+   "Device": "Motorola 40000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Courtney Walsh",
+   "Vehicle_rating": "1",
+   "License": "DC5000",
+   "Device": "Motorola 50000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Aksh Bhakti",
+   "Vehicle_rating": "6",
+   "License": "DC6000",
+   "Device": "Motorola 60000"
+ },
+ {
+   "Type_shuttle": "Mercedes-Benz Sprinter",   
+   "Vin": 1234567890,   
+   "Driver_name": "Bhavin Shah",
+   "Vehicle_rating": "7",
+   "License": "DC7000",
+   "Device": "Motorola 70000"
+ }
+]

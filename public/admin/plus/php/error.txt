@@ -1,0 +1,2 @@
+Source: [POST] common.php/usernew_invite\nINSERT INTO user (user_key,user_email,user_crypto,user_salt,user_status,org_key,user_role,user_first_name,user_last_name,user_phone) VALUES 
+				('0173b6a8bf6e24985fb21d57868ef170','d@dsdf.com','cdef68b762b6a7c2a5b2e5353c66ddad','temp_salt','Invited','','Platform-Admin','vsd','ddsdfdsfsd','(555) 555-5555')

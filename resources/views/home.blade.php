@@ -1,104 +1,56 @@
-@extends('layouts.main')
+@extends('layouts.arclayout')
+
 
 @section('content')
-
-    <main class="main-wrapper clearfix">
-        <!-- Page Title Area -->
-        <div class="row page-title clearfix">
-            <div class="page-title-left">
-                <h6 class="page-title-heading mr-0 mr-r-5"><?php echo isset( $dasboardtitle ) && $dasboardtitle ? $dasboardtitle : 'Dashboard' ?></h6>
-            </div><!-- /.page-title-left -->
-
-        </div><!-- /.page-title -->
-
-        <div class="widget-list new-widget-style">
-            <div class="loader"></div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="widget-heading widget-heading-border">
-                        <h5 class="widget-title">Devices</h5>
-                    </div>
-                    <div class="widget-body">
-                        <ul class="nav nav-tabs contact-details-tab">
-                            <li class="nav-item device-item">
-                                <!-- devices list-->
-
-
-
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="widget-heading widget-heading-border">
-                    </div>
-                    <div class="widget-body new-contents" id="tabPanesForDevices">
-
-                    </div>
-                </div>
-            </div>
+<div data-poster-url="https://uploads-ssl.webflow.com/5a73d5a5c14f9b0001c2a5b8/5a7d41c518f6e3000144342b_Comp 1-poster-00001.jpg" data-video-urls="https://uploads-ssl.webflow.com/5a85fbb738ceec00011b32bf/5a85fbb738ceec00011b32da_Comp%201-transcode.webm,https://uploads-ssl.webflow.com/5a85fbb738ceec00011b32bf/5a85fbb738ceec00011b32da_Comp%201-transcode.mp4" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="hero-section w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;https://uploads-ssl.webflow.com/5a73d5a5c14f9b0001c2a5b8/5a7d41c518f6e3000144342b_Comp 1-poster-00001.jpg&quot;)" data-wf-ignore="true"><source src="https://uploads-ssl.webflow.com/5a85fbb738ceec00011b32bf/5a85fbb738ceec00011b32da_Comp%201-transcode.webm" data-wf-ignore="true"><source src="https://uploads-ssl.webflow.com/5a85fbb738ceec00011b32bf/5a85fbb738ceec00011b32da_Comp%201-transcode.mp4" data-wf-ignore="true"></video>
+    <div class="heroheadfor-cell w-hidden-main w-hidden-medium w-hidden-small">
+        <h1 class="hero-heading">Get Customers <span class="text-span-5">Faster</span>, <span class="text-span-6">Safer</span> &amp; <span class="text-span-7">Happier</span></h1>
+    </div>
+    <div class="herohead w-hidden-tiny">
+        <h1 class="hero-heading">Get Customers</h1>
+        <div class="html-embed w-embed"><span id="typed"></span></div>
+    </div>
+    <div class="container-2 w-container">
+        <p class="paragraph">An automated solution for shuttle tracking, route planning and customer arrival information.</p>
+    </div>
+    <div class="container-2 w-container"><a href="{{route('register')}}" class="button-3 w-button">GET STARTED</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="features" class="button-3 w-button">VIEW FEATURES</a></div>
+</div>
+<div class="summary-section w-hidden-tiny">
+    <div class="w-container">
+        <h1 class="heading-3">Grow Business &amp; Loyalty</h1>
+        <h4 class="heading-3">Boost CLV | Enhance Brand Reputation | Enable Profitable Growth</h4>
+    </div>
+</div>
+<div class="section-125">
+    <div class="row-2 w-row">
+        <div class="column-2 w-col w-col-9">
+            <div class="text-block-7 w-hidden-small w-hidden-tiny"><span class="text-span-4"></span> 2018 Skylark Innovations LLC - All Rights Reserved</div>
+            <div class="text-block-8"><a class="link-6">Legal</a></div>
         </div>
-        <div class="row page-title clearfix" style="margin-top: 10px;">
-            <div class="page-title-left">
-                <h6 class="page-title-heading mr-0 mr-r-5">Tracking Lanes</h6>
-            </div><!-- /.page-title-left -->
+        <div class="w-col w-col-3">
+            <h1 class="heading-15-copy">            </h1>
         </div>
-        <div class="widget-list new-widget-style">
-            <div class="widget-holder col-md-12">
-                <div class="widget-body">
-                    <div class="featured-jobs">
-                        <!--shuttle route realtime view-->
+    </div>
+</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
 @endsection
 
 
-@section("styles")
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css")}}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css")}}"
-          rel="stylesheet" type="text/css"/>
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css")}}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css")}}"
-          rel="stylesheet" type="text/css"/>
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.2/jquery.bootstrap-touchspin.min.css")}}"
-          rel="stylesheet" type="text/css"/>
-    <link href="{{asset("https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/css/ion.rangeSlider.min.css")}}"
-          rel="stylesheet" type="text/css"/>
-@endsection
+@section('scripts')
 
-
-@section("scripts")
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.2/umd/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.7.0/js/perfect-scrollbar.jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/1.9.2/countUp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.1/mithril.js"></script>
-    <script src="{{asset("assets/vendors/theme-widgets/widgets.js")}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/3.1.2/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/js/ion.rangeSlider.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
-    <script src="{{asset("assets/vendors/charts/excanvas.js")}}"></script>
-    <script src="{{asset("assets/js/theme.js")}}"></script>
-    <script src="{{asset("custom-js/dashboard.js")}}"></script>
-    <script src="{{asset("assets/js/custom.js")}}"></script>
-    <script src="{{asset("assets/js/svg.js")}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+<script src="{{asset("arc/js/tmsreal2fae42359873429834-900043727463e.js")}}" type="text/javascript"></script>
+<!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+<script>
+    var options = {
+        strings: [" Faster", " Safer"," Happier"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        cursorChar: "|",
+        cursorBlinking: true,
+        loop: true,
+    }
+    var typed = new Typed("#typed", options);
+</script>
 
 @endsection

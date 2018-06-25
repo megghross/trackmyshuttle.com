@@ -1,0 +1,58 @@
+.form-control {
+  /*border: 0px;*/
+}
+.form-row input, .form-row select, .form-row textarea, .form-row select2 {
+  /*border: 0px;*/
+}
+
+.form-row.input:focus {
+  outline: none !important;
+  border:1px solid red;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+  cursor: default;
+  background-color: transparent;
+  opacity: 1;
+}
+
+.gridhover {
+  background:#ecf0f2;
+}
+
+.file_button_container,
+.file_button_container input {
+  background: transparent url(../img/upload.png) left top no-repeat;
+  height: 47px;
+  width: 263px;
+}
+
+.file_button_container {
+  background: transparent url(../img/upload.png) left top no-repeat;
+}
+
+.file_button_container input {
+  opacity: 0;
+}
+
+.select2-container .select2-choice{
+  height: 39px;
+  padding-top: 5px;
+  color: gray;
+}
+
+/*.select2-choice .select2-chosen .select2-arrow{
+  padding-top: 5px;
+}*/
+
+.control-label{
+	padding-top: 10px;
+}
+
+.form-actions {
+	padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}

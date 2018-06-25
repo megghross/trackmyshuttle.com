@@ -36,7 +36,10 @@ class HomeController extends Controller
     }
 
 
-
+    public function Dashboard()
+	{
+    	return view('dashboard');
+	}
 
     public function LoadData(){
         try {

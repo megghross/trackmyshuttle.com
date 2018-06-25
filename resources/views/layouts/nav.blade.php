@@ -29,7 +29,14 @@
     <!-- User Image with Dropdown -->
     <ul class="nav navbar-nav">
         @guest
+            <li>
+                <a href="{{ __("admin/org.php")}}">
+                <span>
+                  <span class="align-middle">Admin Panel</span>
+                </span>
+                </a>
 
+            </li>
         @else
             <li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle ripple" data-toggle="dropdown">

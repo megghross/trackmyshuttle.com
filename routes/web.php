@@ -17,7 +17,9 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name("dashboard")->middleware("auth");
+Route::get('/', 'HomeController@index')->name("home");
+
+Route::get('/dashboard', 'HomeController@dashboard')->name("dashboard");
 
 
 Route::get('/live-tracking', 'LiveTrackingController@index')->name('live-tracking');

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/croppic.css" rel="stylesheet">
+  </head>
+
+  <body>	
+	<div class="container">
+		<div class="row mt ">
+			<div class="col-lg-4 ">
+				<h4 class="centered"> MODAL </h4>
+				<p class="centered">( open in modal window )</p>
+				<div id="cropContainerModal"></div>
+			</div>
+			
+			<div class="col-lg-4 ">
+				<h4 class="centered"> OUTPUT </h4>
+				<p class="centered">( display url after cropping )</p>
+				<div id="cropContaineroutput"></div>
+				<input type="text" id="cropOutput" style="width:100%; padding:5px 4%; margin:20px auto; display:block; border: 1px solid #CCC;" />
+			</div>
+			
+			<div class="col-lg-4 ">
+				<h4 class="centered"> EYECANDY </h4>
+				<p class="centered">( no background image )</p>
+				<div id="cropContainerEyecandy"></div>
+			</div>
+		</div>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="croppic.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+		var croppicHeaderOptions = {
+				uploadUrl:'img_save_to_file.php',
+				cropData:{
+					"dummyData":1,
+					"dummyData2":"asdas"
+				},
+				cropUrl:'img_crop_to_file.php',
+				customUploadButtonId:'cropContainerHeaderButton',
+				modal:false,
+				loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> ',
+				onBeforeImgUpload: function(){ console.log('onBeforeImgUpload') },
+				onAfterImgUpload: function(){ console.log('onAfterImgUpload') },
+				onImgDrag: function(){ console.log('onImgDrag') },
+				onImgZoom: function(){ console.log('onImgZoom') },
+				onBeforeImgCrop: function(){ console.log('onBeforeImgCrop') },
+				onAfterImgCrop:function(){ console.log('onAfterImgCrop') }
+		}	
+		var croppic = new Croppic('croppic', croppicHeaderOptions);
+		
+		var croppicContainerModalOptions = {
+				uploadUrl:'img_save_to_file.php',
+				cropUrl:'img_crop_to_file.php',
+				modal:true,
+				imgEyecandyOpacity:0.4,
+				loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '
+		}
+		var cropContainerModal = new Croppic('cropContainerModal', croppicContainerModalOptions);
+		
+		var croppicContaineroutputOptions = {
+				uploadUrl:'img_save_to_file.php',
+				cropUrl:'img_crop_to_file.php', 
+				outputUrlId:'cropOutput',
+				modal:false,
+				loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '
+		}
+		var cropContaineroutput = new Croppic('cropContaineroutput', croppicContaineroutputOptions);
+		
+		var croppicContainerEyecandyOptions = {
+				uploadUrl:'img_save_to_file.php',
+				cropUrl:'img_crop_to_file.php',
+				imgEyecandy:false,
+				loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '
+		}
+		var cropContainerEyecandy = new Croppic('cropContainerEyecandy', croppicContainerEyecandyOptions);
+		
+	</script>
+  </body>
+</html>

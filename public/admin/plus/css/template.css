@@ -1,0 +1,19 @@
+/* -------------- Common -----------------*/
+.chat-window-wrapper .user-details-message {
+  display: block;
+  margin: 8px;
+  padding: 10px;
+  border-radius: 3px;
+  display: block;
+  color: #747b89;
+}
+
+.user-info{
+  margin-top: 15px; 
+}
+
+.padding-7 {
+  padding: 7px;
+}
+
+/* -------------- Account -----------------*/
