@@ -66,6 +66,7 @@ class LiveTrackingHelper {
     }
 
     showRoute(routeId) {
+        debugger;
         if (!this.RouteOnDisplay) {
             this.loadRoute(routeId);
         }
@@ -75,7 +76,10 @@ class LiveTrackingHelper {
             }
         }
     }
-
+    hideRoute(routeId) {
+        this.RouteOnDisplay = false;
+        this.CurrentRoute = null;
+    }
     loadRoute(routeId) {
         let route = this.FindRouteById(routeId);
         this.CurrentRoute = route;

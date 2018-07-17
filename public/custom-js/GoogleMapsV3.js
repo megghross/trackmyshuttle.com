@@ -68,6 +68,7 @@ function SubscribeLocationUpdateChannel(shuttleObj){
         .listen('LocationUpdate', (e) => {
             console.log("Location Update from Server");
             console.log(e);
+            liveTracker.hideRoute(e.currentRoute);
             liveTracker.showRoute(e.currentRoute);
             currentShuttle.setPosition(e.lat, e.long);
             currentShuttle.startAnimation(liveTracker, e.currentPoint, e.predictedPoint);
