@@ -13867,11 +13867,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-<<<<<<< HEAD
-module.exports = __webpack_require__(43);
-=======
 module.exports = __webpack_require__(45);
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 
 /***/ }),
@@ -13887,11 +13883,7 @@ module.exports = __webpack_require__(45);
 
 __webpack_require__(13);
 
-<<<<<<< HEAD
-window.Vue = __webpack_require__(36);
-=======
 window.Vue = __webpack_require__(38);
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13899,11 +13891,7 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-<<<<<<< HEAD
-Vue.component('example-component', __webpack_require__(39));
-=======
 Vue.component('example-component', __webpack_require__(41));
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 var app = new Vue({
   el: '#app'
@@ -13911,17 +13899,12 @@ var app = new Vue({
 
 /***/ }),
 /* 13 */
-<<<<<<< HEAD
-/***/ (function(module, exports, __webpack_require__) {
-
-=======
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 window._ = __webpack_require__(14);
 window.Popper = __webpack_require__(3).default;
@@ -13968,18 +13951,6 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-<<<<<<< HEAD
-// import Echo from 'laravel-echo'
-
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
-=======
 
 
 window.Pusher = __webpack_require__(37);
@@ -13990,7 +13961,6 @@ window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   cluster: "mt1",
   encrypted: true
 });
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 /***/ }),
 /* 14 */
@@ -35973,8 +35943,6 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 36 */
-<<<<<<< HEAD
-=======
 /***/ (function(module, exports) {
 
 var asyncGenerator = function () {
@@ -41101,7 +41069,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 38 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41697,11 +41664,7 @@ if (true) {
     if (config.warnHandler) {
       config.warnHandler.call(null, msg, vm, trace);
     } else if (hasConsole && (!config.silent)) {
-<<<<<<< HEAD
-      console.error(("[Vue warn]: " + msg + trace));
-=======
       // console.error(("[Vue warn]: " + msg + trace));
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
     }
   };
 
@@ -52068,17 +52031,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-<<<<<<< HEAD
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(37).setImmediate))
-
-/***/ }),
-/* 37 */
-=======
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
 
 /***/ }),
 /* 39 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -52134,11 +52090,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-<<<<<<< HEAD
-__webpack_require__(38);
-=======
 __webpack_require__(40);
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -52152,11 +52104,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-<<<<<<< HEAD
-/* 38 */
-=======
 /* 40 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -52349,17 +52297,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-<<<<<<< HEAD
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(40)
-/* script */
-var __vue_script__ = __webpack_require__(41)
-/* template */
-var __vue_template__ = __webpack_require__(42)
-=======
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -52369,7 +52306,6 @@ var normalizeComponent = __webpack_require__(42)
 var __vue_script__ = __webpack_require__(43)
 /* template */
 var __vue_template__ = __webpack_require__(44)
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -52386,11 +52322,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-<<<<<<< HEAD
-Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
-=======
 Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 
 /* hot reload */
 if (false) {(function () {
@@ -52399,15 +52331,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-<<<<<<< HEAD
-    hotAPI.createRecord("data-v-7168fb6a", Component.options)
-  } else {
-    hotAPI.reload("data-v-7168fb6a", Component.options)
-=======
     hotAPI.createRecord("data-v-0ca92eac", Component.options)
   } else {
     hotAPI.reload("data-v-0ca92eac", Component.options)
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -52418,11 +52344,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 40 */
-=======
 /* 42 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -52531,11 +52453,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 41 */
-=======
 /* 43 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52564,11 +52482,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-<<<<<<< HEAD
-/* 42 */
-=======
 /* 44 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -52606,20 +52520,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-<<<<<<< HEAD
-    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
-=======
     require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
   }
 }
 
 /***/ }),
-<<<<<<< HEAD
-/* 43 */
-=======
 /* 45 */
->>>>>>> 754968c6bc82aacd82d904d44cf45556a02816ce
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
