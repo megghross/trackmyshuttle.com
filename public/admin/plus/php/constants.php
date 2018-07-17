@@ -5,15 +5,15 @@
 namespace trackmyshuttle;
 // Database Connection Constants
 
-//define('DBHOST', '159.65.228.181');
-//define('DBUSER', 'dbuclients');
-//define('DBPASS', 'Vclients20755!v');
-//define('DBNAME', 'dbclients_trackmyshuttle');
+define('DBHOST', '159.65.228.181');
+define('DBUSER', 'dbuclients');
+define('DBPASS', 'Vclients20755!v');
+define('DBNAME', 'dbclients_trackmyshuttle');
 ///*
-define('DBHOST', 'localhost');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('DBNAME', 'trackmyshuttle');
+//define('DBHOST', 'localhost');
+//define('DBUSER', 'root');
+//define('DBPASS', '');
+//define('DBNAME', 'trackmyshuttle');
 
 
 define("KEY","AKIAI7UGADZN6KTU5DZA");
