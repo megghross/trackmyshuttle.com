@@ -75,7 +75,7 @@
     </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNSD8o2CyNEWb73m62IUL9i7T4i9TF3rM&libraries=geometry,drawing,places"></script>
-<script src="/js/app.js"></script>
+<script src="https://client.brainyloft.com/staging/trackmyshuttle/public/js/app.js"></script>
 
 <script src="{{asset("custom-js/RouteHelper.js")}}"></script>
 <script src="{{asset("custom-js/LiveTrackingHelper.js")}}"></script>
