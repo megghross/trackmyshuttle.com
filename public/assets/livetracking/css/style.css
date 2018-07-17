@@ -216,31 +216,7 @@ a[href^="https://maps.google.com/maps"] {
     }
 }
 
-.eta-details table caption {
-    text-align: center;
-}
 
-.eta-details table tr td {
-    padding: 5px;
-    vertical-align: middle;
-}
-
-.eta-details table tr td:first-child {
-    width: 30px;
-    text-align: center;
-}
-
-.eta-details table tr td:last-child {
-    width: 270px;
-    word-wrap: break-word;
-    word-break: break-all;
-}
-
-.eta-details img {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-}
 
 
 .mapLeftTop {
@@ -277,6 +253,82 @@ a[href^="https://maps.google.com/maps"] {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.eta-details table caption {
+    text-align: center;
+}
+
+.eta-details table tr td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.eta-details table tr td:first-child {
+    width: 30px;
+    text-align: center;
+}
+
+.eta-details table tr td:last-child {
+    width: 270px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.eta-details img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+
+
+
+.location-update-status {
+    display: none;
+    opacity: 0.85;
+
+    margin: 5px 5px 0px 5px;
+
+    float: left;
+
+    padding: 10px;
+    width: auto;
+    height: auto;
+    max-height: 500px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.location-update-status table caption {
+    text-align: center;
+}
+
+.location-update-status table tr td {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.location-update-status table tr td:first-child {
+    width: 30px;
+    text-align: center;
+}
+
+.location-update-status table tr td:last-child {
+    width: 270px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.location-update-status img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
+
+
 .route-details {
     display: none;
 
@@ -310,3 +362,39 @@ a[href^="https://maps.google.com/maps"] {
 
     /*}*/
 /*}*/
+
+
+.shuttles-box {
+    position: absolute;
+    float: right;
+    right: 10px;
+    max-width: 110px !important;
+    top: 15%;
+    margin: 0;
+    padding: 0;
+    max-width: calc(100% - 130px);
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.shuttle-box {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+}
+
+.route-new img, .shuttle-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 2px solid #ccc;
+}
+
+.route-new img:hover, .shuttle-box img:hover {
+    border: 2px solid #555;
+}

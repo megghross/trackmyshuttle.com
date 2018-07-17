@@ -1,5 +1,5 @@
 
-class MapHelper {
+class RouteHelper {
     constructor(Route) {
         this.Route = Route;
         this.time = new Date();
@@ -25,13 +25,14 @@ class MapHelper {
         let legs = this.Route.legs;
         let legIndex = 0;
         let polyArray = [];
+        let helper = this;
         var routeArray = [];
         legs.forEach(function(leg){
             let steps = leg.steps;
             let stepIndex = 0;
             routeArray.push([]);
             steps.forEach(function(step){
-                let temp = step.path;
+                let temp = helper.DecodePath(step.polyline.points);
                 routeArray[legIndex].push([]);
                 routeArray[legIndex][stepIndex] = temp;
                 let pointIndex = 0;
@@ -53,7 +54,7 @@ class MapHelper {
 
     GetPolyLine(){
         var decodedPoints =
-            google.maps.geometry.encoding.decodePath(this.Route.overview_polyline);
+            google.maps.geometry.encoding.decodePath(this.Route.overview_polyline.points);
         return new google.maps.Polyline({
             path: decodedPoints,
             strokeColor: '#000',
@@ -62,6 +63,10 @@ class MapHelper {
             zIndex: 1,
             strokeWeight: 5
         });
+    }
+
+    DecodePath(path){
+        return google.maps.geometry.encoding.decodePath(path);
     }
 
     NearestPointOfRoute(marker)

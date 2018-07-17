@@ -25,6 +25,9 @@ Route::name("util.")->group(function(){
     Route::post('/updatelocation', "UtilityController@UpdateLocation")->name("update");
 
 
+    Route::post('/updatelocation', "UtilityController@UpdateLocation2")->name("updateLocation");
+
+
 });
 
 
@@ -43,3 +46,12 @@ Route::prefix("dashboard")->name("dashboard.")->group(function(){
     Route::get('/loaddrivers', "HomeController@LoadDrivers")->name("loaddrivers");
     Route::get('/getdashboarddata', "HomeController@GetDashboardData")->name("getdashboarddata");
 });
+
+
+
+Route::prefix("livetracking")->name("livetracking.")->group(function(){
+
+	Route::post('/fetchRoute', "LiveTrackingController@FetchRoute")->name("fetchRoute");
+});
+
+

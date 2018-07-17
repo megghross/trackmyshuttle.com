@@ -8,6 +8,7 @@ var speed = "";
 var polyline = [];
 var mapHelper = [];
 var shuttleData = [];
+var timeoutVar = [];
 var stepIndex = 0;
 var icon_size = 24;
 var legIndex = 0;
@@ -19,17 +20,72 @@ var startPos;
 var speed = 100; // km/h
 var delay = 100;
 var infowindow;
+var shuttleOrignalLine = null;
 
 
 let URL = $("body").data("url");
 let BaseURL = $("body").data("baseurl") + '/';
 
 $(document).ready(function () {
+
+
+
+    // Echo.private('location.5454')
+    //     .listen('LocationUpdate', (e) => {
+    //         debugger;
+    //     });
+
+
     initMap();
+    showLocationUpdateStatus('Location Updating');
     $(document).on('click', '.route-box', function (event) {
         for (var i = 1; i < polyline.length; i++) {
             polyline[i].setMap(null);
+            for (var j = 0; j < marker[i].length; j++) {
+                marker[i][j].setMap(null);
+            }
+            for (var j = 0; j < Markers[i].length; j++) {
+                Markers[i][j].setMap(null);
+            }
+        }
+        if (infowindow) {
+            infowindow.close();
+        }
 
+        // var shuttleNumber = this.dataset.shuttlenumber;
+        var id = this.dataset.routeid;
+        if(shuttleOrignalLine!=null){
+            shuttleOrignalLine.setMap(null);
+        }
+        else{
+            alert('Choose a Shuttle first');
+        }
+        console.log(polyline[id]);
+        shuttleOrignalLine = mapHelper[id].PolyLine;
+        shuttleOrignalLine.setMap(map);
+        shuttleOrignalLine.setOptions({strokeColor: '#ec00ff'});
+        shuttleOrignalLine.setOptions({strokeOpacity: 0.2});
+        var bounds = new google.maps.LatLngBounds();
+        shuttleOrignalLine.getPath().forEach(function (element, index) {
+            bounds.extend(element)
+        });
+        clearTimeout(timeoutVar[selectedShuttle.customInfo.routeId][selectedShuttle.customInfo.shuttleNumber]);
+        animateMarker(selectedShuttle, mapHelper[id].PolyLineArray, speed, Markers[id], selectedShuttle.customInfo.name, id);
+
+
+        map.fitBounds(bounds);
+        selectedShuttle.setMap(map);
+        // selectedShuttleNumber = shuttleNumber;
+        map.setCenter(selectedShuttle.position);
+        map.setZoom(15);
+        for (var j = 0; j < Markers[id].length; j++) {
+            Markers[id][j].setMap(map);
+        }
+        route_details(id, 0);
+    });
+    $(document).on('click', '.shuttle-box', function (event) {
+        for (var i = 1; i < polyline.length; i++) {
+            polyline[i].setMap(null);
             for (var j = 0; j < marker[i].length; j++) {
                 marker[i][j].setMap(null);
             }
@@ -43,23 +99,31 @@ $(document).ready(function () {
         var shuttleNumber = this.dataset.shuttlenumber;
         var id = this.dataset.routeid;
 
+        if(shuttleOrignalLine!=null){
+            shuttleOrignalLine.setMap(null);
+        }
+        console.log(polyline[id]);
+        // shuttleOrignalLine = mapHelper[id].PolyLine;
 
-        polyline[id].setMap(map);
+        //Hide the polyline
 
-        var bounds = new google.maps.LatLngBounds();
-        polyline[id].getPath().forEach(function (element, index) {
-            bounds.extend(element)
-        });
-        map.fitBounds(bounds);
+        // polyline[id].setMap(map);
+
+        // var bounds = new google.maps.LatLngBounds();
+        // polyline[id].getPath().forEach(function (element, index) {
+        //     bounds.extend(element)
+        // });
+        // map.fitBounds(bounds);
 
         marker[id][shuttleNumber].setMap(map);
         selectedShuttleNumber = shuttleNumber;
-        map.setCenter(marker[id][shuttleNumber].position);
+        selectedShuttle = marker[id][shuttleNumber];
+        map.setCenter(marker[id].position);
         map.setZoom(15);
-        for (var j = 0; j < Markers[id].length; j++) {
-            Markers[id][j].setMap(map);
-        }
-        route_details(id, shuttleNumber);
+        // for (var j = 0; j < Markers[id].length; j++) {
+        //     Markers[id][j].setMap(map);
+        // }
+        route_details(id, 0);
     });
     $(".route-new a").click(function () {
         for (var i = 1; i < polyline.length; i++) {
@@ -172,17 +236,27 @@ function loadMaps() {
         url: URL,
         method: "GET",
         success: function (response) {
-            for (i = 0; i < response.length; i++) {
+            console.log('Route  loading start now.');
 
+            for (i = 0; i < response.length; i++) {
+                console.log('Route  '+(i+1)+" loaded.");
                 route = response[i];
-                for (j = 0; j < response[i].devices.length; j++) {
-                    var htmlStr = '<div class="route-box" data-routeid="' + (i + 1) + '" data-shuttleNumber="' + j + '" id="' + route.id + '"><a href="#"><img src="'+BaseURL+'img/bus.png" alt="Routes"><div class="desc">' +
-                        route.devices[j].shuttleName + '</div></a></div>';
-                    $(".routes-box").append(htmlStr);
+
+                for (j = 0; j < route.devices.length; j++) {
+                    var htmlStr = '<div class="shuttle-box" data-routeid="' + (i + 1) + '" data-shuttleNumber="' + j + '" id="' + route.id + '"><a href="#"><img src="'+BaseURL+'img/bus.png" alt="Routes"><div class="desc">' +
+                        route.devices[j].shuttleName +'<br>'+route.name  + '</div></a></div>';
+                    $(".shuttles-box").append(htmlStr);
                 }
+
+
+                var htmlStr = '<div class="route-box" data-routeid="'+(i+1)+'"><a href="#"><img src="'+BaseURL+'img/route.png" alt="Routes"><div class="desc">' + route.name + '</div></a></div>';
+                $(".routes-box").append(htmlStr);
+
                 shuttleData[i + 1] = route;
                 showOnMap(route, (i + 1));
             }
+            console.log('Route loading completed.');
+
             $(".loader").css("display", "none");
         }
     });
@@ -190,8 +264,6 @@ function loadMaps() {
 
 
 function showOnMap(route, index) {
-    debugger;
-
     var directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true,
@@ -259,7 +331,6 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
         avoidTolls: true
     }, function (response, status) {
         if (status === 'OK') {
-            debugger;
             // display.setDirections(response);
             // var path=shuttleData.coordinates.split("\n");
             // var coordinates=[];
@@ -267,11 +338,14 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
             //     var point=path[j].split(",");
             //     coordinates.push(new google.maps.LatLng(parseFloat(point[0]),parseFloat(point[1])));
             // }
-            polyline[id] = getPolyLines(response.routes[0].overview_polyline, shuttleData.color);
+
             mapHelper[id] = new MapHelper(response.routes[0]);
+            polyline[id] = getPolyLines(response.routes[0].overview_polyline, shuttleData.color);
 
             // polyline[id] = getPolyLineFromLatLngs(coordinates, shuttleData.color);
-            polyline[id].setMap(map);
+
+
+            // polyline[id].setMap(map);
 
             var bounds = new google.maps.LatLngBounds();
             polyline[id].getPath().forEach(function (element, index) {
@@ -331,7 +405,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
 
                     if (wayPoint.type == 'Stop' || wayPoint.type == 'End') {
                         localMarker = new google.maps.Marker({
-                            map: map,
+                            // map: map,
                             position: waypointPosition,
                             icon: icon,
                             customInfo: {
@@ -378,7 +452,7 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
                         }
                         else {
                             localStopMarker[indexK] = new google.maps.Marker({
-                                map: map,
+                                // map: map,
                                 position: waypointPosition,
                                 icon: icon,
                                 customInfo: {
@@ -427,24 +501,47 @@ function displayRoute(origin, destination, service, display, waypoints, markerTi
 
                 }
             }
+            var car = "M97.94,111.31a.69.69,0,0,0-.52-.21,1.19,1.19,0,0,0-.44.09l-11.12,4.22a2.62,2.62,0,0,0-.72.44l.89-8.31a5.64,5.64,0,0,0,4.92-4.17h.57V15.19C91.52,5.34,88.47,0,72.36,0h0L20.55.24C15.77.24,6.61,3.18,6.61,7.8v95.57h.57a5.69,5.69,0,0,0,5.28,4.2l.91,8.6a2.41,2.41,0,0,0-1-.75L1.21,111.19a1.11,1.11,0,0,0-.43-.09.69.69,0,0,0-.52.21c-.37.4-.23,1.26-.2,1.43v.08A7.33,7.33,0,0,0,3.32,116l7.53,3.06a2.5,2.5,0,0,0,1,.19,2,2,0,0,0,1.77-.94l4.83,45.54a7.32,7.32,0,0,0,2.36,4.79c3.85,4.07,11.44,6.76,14.8,6.76l25.34-.25h3.32c2.63-.11,6.33-1.59,9.49-3.76,2.19-1.48,6-4.54,6.38-8.37l4.74-44.36a2.09,2.09,0,0,0,1.53.62,2.5,2.5,0,0,0,1-.19L94.88,116a7.33,7.33,0,0,0,3.23-3.18v-.08A1.88,1.88,0,0,0,97.94,111.31ZM86.68,18.73a1.15,1.15,0,0,1,2.29,0V58.27a1.15,1.15,0,0,1-2.29,0Zm0,48.92a1.15,1.15,0,0,1,2.29,0v31a6.16,6.16,0,0,0-2.29-1ZM11.47,97.58a6.43,6.43,0,0,0-2.28,1v-31a1.09,1.09,0,0,1,1.14-1,1.09,1.09,0,0,1,1.14,1Zm0-39.31a1.09,1.09,0,0,1-1.14,1,1.09,1.09,0,0,1-1.14-1V18.73a1.08,1.08,0,0,1,1.14-1,1.08,1.08,0,0,1,1.14,1ZM68.35,104.1c3,0,5.37,1.57,5.37,3.51s-2.4,3.52-5.37,3.52H30.12c-3,0-5.37-1.57-5.37-3.52s2.41-3.51,5.37-3.51ZM15.17,3.56c-.06,0,0-.35,0-.53a6.22,6.22,0,0,0,0-.75,22.81,22.81,0,0,1,2.49-.69l.45-.07a3,3,0,0,1,.47,0l10.21.08a1,1,0,0,1,.56.11c.11.1.11.38.11.69v.38c0,.33,0,.64-.13.76a1,1,0,0,1-.54.11H15.5C15.22,3.6,15.17,3.56,15.17,3.56ZM21.37,168a6.26,6.26,0,0,1-2-4.1h0l-.21-2.05,2.65.16a19,19,0,0,0,2.45,4.26c1.55,2.17,3.26,5,6.18,7.1A24.3,24.3,0,0,1,21.37,168Zm57.84-5c-.46,4.37-6.35,8.49-11.09,10.27,2.89-2.06,4.65-4.85,6.2-7A19,19,0,0,0,76.77,162l2.56-.15Zm-1.85-6.8a21.78,21.78,0,0,1-6.9,6.1c-5.85,3.43-13.8,5.32-21.76,5.29s-15.87-2-21.66-5.43c-4.58-2.71-7.7-6.39-8.74-10.29H19a13.53,13.53,0,0,0,2,3.95,22,22,0,0,0,6.76,5.89c5.65,3.33,13.32,5.16,21,5.15s15.38-1.73,21.08-5a22.09,22.09,0,0,0,6.8-5.86,13.64,13.64,0,0,0,2.09-4.13h.67a13.28,13.28,0,0,1-2,4.32Zm2.46-41.88L78.48,131.9l-.36.1a3.12,3.12,0,0,1-2,1.83,100.33,100.33,0,0,1-54.41-.24,3,3,0,0,1-2.12-2.45l-1.68-18.35a1.3,1.3,0,0,1,.19-.85,1.09,1.09,0,0,1,.13-.17,1.22,1.22,0,0,1,1.58-.31c10.54,6.65,19.5,9.43,29.39,9.43,9.57,0,19-2.78,28.79-9.2a1.12,1.12,0,0,1,1.57.23l0,.06a1.56,1.56,0,0,1,.3,1.06ZM82.48,3.56a.73.73,0,0,1-.33,0H68.9a1,1,0,0,1-.54-.11c-.14-.12-.13-.43-.13-.76V2.35c0-.31,0-.59.11-.69a1,1,0,0,1,.56-.11L79,1.47c.76.11,1.47.25,2.14.4.5.14,1,.29,1.34.41a6.45,6.45,0,0,0,0,.75C82.52,3.21,82.54,3.51,82.48,3.56Z";
+            var icon = {
+                path: car,
 
+                strokeColor: 'white',
+                strokeWeight: .2,
+                fillOpacity: 1.0,
+                scale: 0.2,
+                // origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(35, 40), // anchor
+                labelOrigin: new google.maps.Point(90, -90),
+                fillColor: '#1e1640',
+                offset: '5%'
+            };
+
+            // icon.rotation = (google.maps.geometry.spherical.computeHeading(new google.maps.LatLng(lat, lng), new google.maps.LatLng(lat + deltaLat, lng + deltaLng))) + 180;
+            //
             marker[id] = [];
-
+            timeoutVar[id] = [];
             for (k = 0; k < shuttleData.devices.length; k++) {
                 marker[id][k] = new google.maps.Marker({
-                    icon: BaseURL+"img/caricon.png",
-                    map: map,
+                    icon: icon,
+                    // map: map,
                     label: shuttleData.devices[k].shuttleName,
                     customInfo: {
                         shuttleNumber: k,
+                        serialNumber: shuttleData.devices[k].serialNumber,
+                        deviceToken: shuttleData.devices[k].deviceToken,
                         routeId: id,
+                        name: shuttleData.devices[k].shuttleName,
                         type: "Shuttle"
                     }
                 });
                 marker[id][k].setPosition(mPosition);
                 registerEventForEvent(marker[id][k]);
-                animateMarker(marker[id][k], arrayOfLatLng, speed, Markers[id], shuttleData.devices[k].shuttleName, id);
+                // animateMarker(marker[id][k], arrayOfLatLng, speed, Markers[id], shuttleData.devices[k].shuttleName, id);
+
             }
+
+
+
             updateCurrentLocaiton();
 
 
@@ -507,7 +604,7 @@ function animateMarker(marker, coords1d, km_h, Markers, markerTitle, id) {
 
             if (i < distance) {
                 marker.setPosition(new google.maps.LatLng(lat, lng));
-                setTimeout(moveMarker, delay);
+                timeoutVar[marker.customInfo.routeId][marker.customInfo.shuttleNumber] = setTimeout(moveMarker, delay);
             }
             else {
                 marker.setPosition(dest);
@@ -520,11 +617,11 @@ function animateMarker(marker, coords1d, km_h, Markers, markerTitle, id) {
 
                 }
                 if (IsTargetIsStop(dest, marker.customInfo.routeId)) {
-                    setTimeout(goToPoint, 30000);
+                    timeoutVar[marker.customInfo.routeId][marker.customInfo.shuttleNumber]  = setTimeout(goToPoint, 5000);
 
                 }
                 else {
-                    setTimeout(goToPoint, delay);
+                    timeoutVar[marker.customInfo.routeId][marker.customInfo.shuttleNumber] = setTimeout(goToPoint, delay);
                 }
             }
             var car = "M97.94,111.31a.69.69,0,0,0-.52-.21,1.19,1.19,0,0,0-.44.09l-11.12,4.22a2.62,2.62,0,0,0-.72.44l.89-8.31a5.64,5.64,0,0,0,4.92-4.17h.57V15.19C91.52,5.34,88.47,0,72.36,0h0L20.55.24C15.77.24,6.61,3.18,6.61,7.8v95.57h.57a5.69,5.69,0,0,0,5.28,4.2l.91,8.6a2.41,2.41,0,0,0-1-.75L1.21,111.19a1.11,1.11,0,0,0-.43-.09.69.69,0,0,0-.52.21c-.37.4-.23,1.26-.2,1.43v.08A7.33,7.33,0,0,0,3.32,116l7.53,3.06a2.5,2.5,0,0,0,1,.19,2,2,0,0,0,1.77-.94l4.83,45.54a7.32,7.32,0,0,0,2.36,4.79c3.85,4.07,11.44,6.76,14.8,6.76l25.34-.25h3.32c2.63-.11,6.33-1.59,9.49-3.76,2.19-1.48,6-4.54,6.38-8.37l4.74-44.36a2.09,2.09,0,0,0,1.53.62,2.5,2.5,0,0,0,1-.19L94.88,116a7.33,7.33,0,0,0,3.23-3.18v-.08A1.88,1.88,0,0,0,97.94,111.31ZM86.68,18.73a1.15,1.15,0,0,1,2.29,0V58.27a1.15,1.15,0,0,1-2.29,0Zm0,48.92a1.15,1.15,0,0,1,2.29,0v31a6.16,6.16,0,0,0-2.29-1ZM11.47,97.58a6.43,6.43,0,0,0-2.28,1v-31a1.09,1.09,0,0,1,1.14-1,1.09,1.09,0,0,1,1.14,1Zm0-39.31a1.09,1.09,0,0,1-1.14,1,1.09,1.09,0,0,1-1.14-1V18.73a1.08,1.08,0,0,1,1.14-1,1.08,1.08,0,0,1,1.14,1ZM68.35,104.1c3,0,5.37,1.57,5.37,3.51s-2.4,3.52-5.37,3.52H30.12c-3,0-5.37-1.57-5.37-3.52s2.41-3.51,5.37-3.51ZM15.17,3.56c-.06,0,0-.35,0-.53a6.22,6.22,0,0,0,0-.75,22.81,22.81,0,0,1,2.49-.69l.45-.07a3,3,0,0,1,.47,0l10.21.08a1,1,0,0,1,.56.11c.11.1.11.38.11.69v.38c0,.33,0,.64-.13.76a1,1,0,0,1-.54.11H15.5C15.22,3.6,15.17,3.56,15.17,3.56ZM21.37,168a6.26,6.26,0,0,1-2-4.1h0l-.21-2.05,2.65.16a19,19,0,0,0,2.45,4.26c1.55,2.17,3.26,5,6.18,7.1A24.3,24.3,0,0,1,21.37,168Zm57.84-5c-.46,4.37-6.35,8.49-11.09,10.27,2.89-2.06,4.65-4.85,6.2-7A19,19,0,0,0,76.77,162l2.56-.15Zm-1.85-6.8a21.78,21.78,0,0,1-6.9,6.1c-5.85,3.43-13.8,5.32-21.76,5.29s-15.87-2-21.66-5.43c-4.58-2.71-7.7-6.39-8.74-10.29H19a13.53,13.53,0,0,0,2,3.95,22,22,0,0,0,6.76,5.89c5.65,3.33,13.32,5.16,21,5.15s15.38-1.73,21.08-5a22.09,22.09,0,0,0,6.8-5.86,13.64,13.64,0,0,0,2.09-4.13h.67a13.28,13.28,0,0,1-2,4.32Zm2.46-41.88L78.48,131.9l-.36.1a3.12,3.12,0,0,1-2,1.83,100.33,100.33,0,0,1-54.41-.24,3,3,0,0,1-2.12-2.45l-1.68-18.35a1.3,1.3,0,0,1,.19-.85,1.09,1.09,0,0,1,.13-.17,1.22,1.22,0,0,1,1.58-.31c10.54,6.65,19.5,9.43,29.39,9.43,9.57,0,19-2.78,28.79-9.2a1.12,1.12,0,0,1,1.57.23l0,.06a1.56,1.56,0,0,1,.3,1.06ZM82.48,3.56a.73.73,0,0,1-.33,0H68.9a1,1,0,0,1-.54-.11c-.14-.12-.13-.43-.13-.76V2.35c0-.31,0-.59.11-.69a1,1,0,0,1,.56-.11L79,1.47c.76.11,1.47.25,2.14.4.5.14,1,.29,1.34.41a6.45,6.45,0,0,0,0,.75C82.52,3.21,82.54,3.51,82.48,3.56Z";
@@ -646,78 +743,12 @@ function getRandomNumber(min, max) {
 
 var selectedShuttleNumber = 0;
 
-function etaUpdate(coords, targetIndex, marker, nextMarkerPosition, id, km_h) {
-
-    try {
-
-        var shuttleNumber = marker.customInfo.shuttleNumber;
-        if (shuttleNumber == selectedShuttleNumber) {
-
-            markerPosition = marker.position;
-            var position = null;
-
-            if (targetIndex >= (coords.length - 1)) {
-
-                if (coords.length - 2 < 0) {
-                    targetIndex = 0;
-                }
-                else {
-                    targetIndex = coords.length - 2;
-                }
-            }
-            for (indexIJ = 0; indexIJ < Markers[id].length; indexIJ++) {
-                if (Markers[id][indexIJ].customInfo.name == EtaMarker.customInfo.name) {
-                    var distance = CalculateDistance(coords, markerPosition, Markers[id][indexIJ].position, nextMarkerPosition);
-                    if (distance == 0) {
-                        position = coords[targetIndex];
-                        distance = CalculateDistance(coords, coords[targetIndex], Markers[id][indexIJ].position, coords[targetIndex == 0 ? targetIndex : targetIndex + 1]);
-                    }
-                    if (distance != 0) {
-
-                        if (distance == -1) {
-                            document.getElementById("etaMessage").innerHTML = 'Trip Completed!';
-
-                        }
-                        else if (distance == -2) {
-                            document.getElementById("etaMessage").innerHTML = 'Shuttle is Arriving Now';
-                        }
-                        else {
-                            if (position != null) {
-                                distance = distance + (google.maps.geometry.spherical.computeDistanceBetween(
-                                    position, markerPosition));
-                            }
-                            var timeinmilliseconds = ((distance / 1000) / km_h) * 60 * 60 * 1000;
-                            var time = getTime(timeinmilliseconds);
-
-                            if (time == '0 sec' || time == '1 sec' || time == '2 sec' || time == '3 sec') {
-                                document.getElementById("etaMessage").innerHTML = 'Shuttle just Arrived!';
-
-                            }
-                            else {
-                                document.getElementById("etaMessage").innerHTML = 'Shuttle  ' + (shuttleNumber + 1) + ' will arrive in ' + time;
-
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-
-    }
-
-    catch (e) {
-        // console.log(e);
-    }
-}
-
 function etaUpdatev2(coords, targetIndex, marker, id, km_h) {
 
     try {
 
-
-        var shuttleNumber = marker.customInfo.shuttleNumber;
-        if (shuttleNumber == selectedShuttleNumber) {
+        var shuttleName = marker.customInfo.name;
+        if (shuttleName == selectedShuttle.customInfo.name) {
 
             markerPosition = marker.position;
             var position = null;
@@ -739,6 +770,8 @@ function etaUpdatev2(coords, targetIndex, marker, id, km_h) {
                     markerPoint.stepIndex = coords[targetIndex].stepIndex;
                     markerPoint.pointIndex = coords[targetIndex].pointIndex;
                     let time = mapHelper[id].CalculateETA(markerPoint, stopPoint, km_h);
+                    let message = mapHelper[id].UpdateLocation(marker);
+                    document.getElementById("locationUpdateStatus").innerHTML = message;
                     if (time == '0 sec' || time == '1 sec' || time == '2 sec' || time == '3 sec') {
                         document.getElementById("etaMessage").innerHTML = 'Shuttle just Arrived!';
                     }
@@ -746,7 +779,7 @@ function etaUpdatev2(coords, targetIndex, marker, id, km_h) {
                         document.getElementById("etaMessage").innerHTML = time;
                     }
                     else {
-                        document.getElementById("etaMessage").innerHTML = 'Shuttle  ' + (shuttleNumber + 1) + ' will arrive in ' + time;
+                        document.getElementById("etaMessage").innerHTML = 'Shuttle  ' + (selectedShuttle.customInfo.shuttleNumber + 1) + ' will arrive in ' + time;
                     }
                     return true;
                 }
@@ -757,7 +790,7 @@ function etaUpdatev2(coords, targetIndex, marker, id, km_h) {
     }
 
     catch (e) {
-        console.log(e);
+        // console.log(e);
     }
 }
 
@@ -773,6 +806,20 @@ function showETA(EtaMessage) {
 function hideEta() {
     $(".eta-details").html("");
     $(".eta-details").hide();
+}
+
+function showLocationUpdateStatus(statusMessage) {
+    $(".location-update-status").show();
+    $(".location-update-status").html("");
+    htmlStr = '<button type="button" onclick="hideLocationUpdateStatus()" class="hideKeyBox">X</button><table><caption>Server Response</caption' +
+        '<tr><td id="locationUpdateStatus">' + statusMessage + '</td></tr>';
+
+    $(".location-update-status").html(htmlStr);
+}
+
+function hideLocationUpdateStatus() {
+    $(".location-update-status").html("");
+    $(".location-update-status").hide();
 }
 
 function hideKeyBox() {

@@ -57,7 +57,7 @@ else {
 	  <ul class="nav pull-left notifcation-center" id="main-menu-toggle-wrapper" style="display:none">	
 		<li class="dropdown"> <a id="main-menu-toggle" href="#main-menu"  class="" > <div class="iconset top-menu-toggle-white"></div> </a> </li>		 
 	  </ul>
-	  <a href="/staging/trackmyshuttle/public/dashboard"><img src="plus/img/logo3.png" class="logo" alt=""  data-src="plus/img/logo3.png" data-src-retina="plus/img/logo3.png" width="180" height="35" style="margin-left: 30px; margin-top: 10px;"/></a>
+	  <a href="/dashboard"><img src="plus/img/logo3.png" class="logo" alt=""  data-src="plus/img/logo3.png" data-src-retina="plus/img/logo3.png" width="180" height="35" style="margin-left: 30px; margin-top: 10px;"/></a>
 	</div>
 	<div class="header-quick-nav" >
 	<div class="pull-left"> 
@@ -77,10 +77,10 @@ else {
 				  <div class="iconset top-settings-dark "></div> 	
 			  </a>
 			  <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-			  	<li><a href="changepwd.php"><i class="fa fa-key"></i>&nbsp;&nbsp;Update Password</a></li>
-				<li><a href="../logout.php"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Log Out</a></li>
-			 </ul>
-		  </li> 
+                  <li><a href="/dashboard.php"><i class="fa fa-setting"></i>&nbsp;Dashboard</a></li>
+
+              </ul>
+            </li>
 	  </ul>
 	</div>
 	</div>

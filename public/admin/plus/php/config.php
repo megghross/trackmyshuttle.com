@@ -23,7 +23,7 @@
         
 	/*	Triteq AWS Development	*/
 	
-	$islive = 1;
+	$islive = 0;
 
 	if ($islive==0){
 		$username = "root"; 

@@ -1,38 +1,91 @@
-@extends('layouts.arclayout', ["title"=> "Login | Track My Shuttle"])
+@extends('layouts.pagelayout', ["title"=> "Login | Track My Shuttle"])
 @section('content')
 
 
-    <div class="section-126">
-        <div class="w-container">
-            <div class="div-block">
-                <h1 class="heading-8">Welcome back.</h1>
-                <div class="w-form">
-                    <form id="frm_login" name="email-form" data-name="Email Form" class="form">
-                        <input type="email" class="text-field w-input" maxlength="256" name="login_email" data-name="login_email" placeholder="Email Address" id="login_email" required="">
-                        <input type="password" class="text-field-2 w-input" maxlength="256" name="login_pass" data-name="login_pass" placeholder="Password" id="login_pass" required=""><!-- <input type="submit" value="LOGIN" data-wait="Please wait..." class="submit-button  w-button"> -->
-                        <button id="login-btn" class="submit-button w-button" name="submit_login" type="submit">LOGIN</button>
-                    </form>
-                    <div class="w-form-done" style="display: none;">
-                        <div>Thank you! Your submission has been received!</div>
+    <div id="wrapper" class="row wrapper">
+
+        <div class="container-min-full-height d-flex justify-content-center align-items-center">
+            <div class="login-center">
+                <div class="navbar-header text-center mb-5">
+                    <a href="index.php">
+                        <img alt="" src="assets/demo/logo-expand-dark.png">
+                    </a>
+                </div><!-- /.navbar-header -->
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" class="form-control form-control-line {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                        @endif
                     </div>
-                    <div class="w-form-fail" style="display: none;">
-                        <div>Oops! Something went wrong while submitting the form.</div>
+
+
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" class="form-control form-control-line {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        @if ($errors->has('password'))
+                            <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
                     </div>
-                </div>
-                <div class="text-block-2">Forgot username or password? <a href="recover-account.php" class="link-2">Recover account</a></div>
-            </div>
-        </div>
-    </div>
 
+                    <div class="form-group">
+                        <button class="btn btn-block btn-lg btn-color-scheme text-uppercase fs-12 fw-600" type="submit">
+                            Login
+                        </button>
+                    </div>
 
-@endsection
+                    <div class="form-group no-gutters mb-0">
+                        <div class="col-md-12 d-flex">
+                            <div class="checkbox checkbox-primary mr-auto mr-0-rtl ml-auto-rtl">
+                                <label class="d-flex">
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
 
+                                    <span class="label-text"> {{ __('Remember Me') }}</span>
+                                </label>
+                            </div>
+                            <a href="{{Route("password.request")}}" id="to-recover" class="my-auto pb-2 text-right">
+                                <i class="material-icons mr-2 fs-18">lock</i> Forgot Password?
+                            </a>
+                        </div><!-- /.col-md-12 -->
+                    </div><!-- /.form-group -->
+                </form><!-- /.form-material -->
 
+                <hr />
 
-@section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
-    <!-- <script src="js/tmsreal2fae42359873429834-900043727463e.js" type="text/javascript"></script> -->
-    <script src="{{asset("admin/plus/js/gate.js")}}" type="text/javascript"></script>
-    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+                <div class="row btn-list">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-facebook ripple" data-toggle="tooltip" data-placement="top" title="Login with Facebook">
+                            <i class="social-icons list-icon">facebook</i>
+                            facebook
+                        </button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-block btn-googleplus ripple" data-toggle="tooltip" data-placement="top" title="Login with Google">
+                            <i class="social-icons list-icon">googleplus</i>
+                            google
+                        </button>
+                    </div>
+                </div><!-- /.btn-list -->
+
+                <footer class="col-sm-12 text-center">
+                    <hr />
+                    {{--<p>Don't have an account? <a href="page-register.php" class="text-primary m-l-5"><b>Sign Up</b></a></p>--}}
+                </footer>
+
+            </div><!-- /.login-center -->
+        </div><!-- /.d-flex -->
+    </div><!-- /.body-container -->
 
 @endsection
