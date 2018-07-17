@@ -48,7 +48,7 @@
 			cellval = grid.cells(rid,index).getValue();
 			cellval = cellval.split("^");
 			$.getJSON('plus/php/common.php',{mode:'org_user_login',org_id:org_id}, function(msg) {
-				location.href='../dashboard.php';
+				location.href='../dashboard';
 			});										
 		}
 		else{

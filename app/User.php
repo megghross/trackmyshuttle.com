@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'org_key', 'visits', 'role', 'status', 'notify', 'phone_number', 'first_name', 'last_name', 'salt', 'is_bounces', 'is_complaints', 'user_key'
     ];
 
     /**
@@ -28,4 +28,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    public function RegisterVisit(){
+    	$this->visits = $this->visits + 1;
+    	$this->update();
+	}
 }

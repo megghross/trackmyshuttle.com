@@ -10,6 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ isset($title)?$title:config('app.name', 'Track My Shuttle') }}</title>
 
 
     <!--Common CSS--->

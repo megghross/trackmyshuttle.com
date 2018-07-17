@@ -67,6 +67,16 @@
                 </a>
             </li>
 
+            <li class="{{isActive("simulation")}}">
+                <a class="bluer" href="{{Route("simulation")}}">
+                    <i class="list-icon feather feather-battery-charging"></i>
+                    <span class="hide-menu">
+						Simulation
+					</span>
+                </a>
+            </li>
+
+
         </ul><!-- /.side-menu -->
     </nav><!-- /.sidebar-nav -->
 </aside><

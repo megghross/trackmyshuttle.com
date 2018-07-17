@@ -1,7 +1,8 @@
 <?php
 
 
-
+use App\Models\GoogleAPIData;
+use Carbon\Carbon;
 
 if (!function_exists('textInitials')) {
     /**
@@ -52,10 +53,8 @@ if (!function_exists('textInitials')) {
                 $res = mb_substr($text, 0, $length);
             }
         }
-
         return $res;
     }
-
 }
 if (!function_exists('readableRandomString')) {
     /**
@@ -84,13 +83,54 @@ if (!function_exists('readableRandomString')) {
 
 function GetJson($url)
 {
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $data = curl_exec($ch);
-    curl_close($ch);
-    return $data;
+	$data  = GoogleAPIData::where(['url'=> $url])->first();
+	if($data==null){
+		return GetHttpDataAndSave($url);
+	}
+	else{
+		$updated_at = $data->updated_at;
+		$now = \Carbon\Carbon::now();
+		$dif=  $now->diff($updated_at);
+
+		if(to_seconds($dif)>600){
+			return GetHttpDataAndSave($url);
+		}
+		return $data->data;
+	}
 }
 
+
+function GetHttpDataAndSave($url){
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	$apiData  = GoogleAPIData::where(['url'=> $url])->first();
+	if($apiData==null){
+		$apiData = new GoogleAPIData();
+	}
+	else{
+		if($data==null || $data==''){
+			return $apiData->data;
+		}
+		$apiData->exists = true;
+	}
+
+	$apiData->data = $data;
+	$apiData->url = $url;
+	$apiData->updated_at = Carbon::now();
+	$apiData->save();
+	return $data;
+}
+ function to_seconds($dif)
+{
+	return ($dif->y * 365 * 24 * 60 * 60) +
+		($dif->m * 30 * 24 * 60 * 60) +
+		($dif->d * 24 * 60 * 60) +
+		($dif->h * 60 * 60) +
+		($dif->i * 60) +
+		$dif->s;
+}
 ?>

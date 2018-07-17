@@ -11,6 +11,13 @@
 |
 */
 
+use App\Broadcasting\LocationChannel;
+
+
+Broadcast::channel('location.{serialNumber}',   function ($user, $serialNumber) {
+	return true;
+});
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+

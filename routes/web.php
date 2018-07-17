@@ -17,6 +17,7 @@
 
 Auth::routes();
 
+
 Route::get('/', 'HomeController@index')->name("home");
 
 Route::get('/dashboard', 'HomeController@dashboard')->name("dashboard");
@@ -37,6 +38,9 @@ Route::get('/shuttles', 'ShuttlesController@index')->name('shuttles');
 Route::get('/support', 'ShuttlesController@index')->name('support');
 
 
+Route::get('/simulation', 'SimulationController@index')->name('simulation');
+
+
 Route::get('/test', function(){
     return view('test');
 });
@@ -53,10 +57,17 @@ Route::prefix("iframe")->name("iframe.")->group(function() {
         return view('livetracking.fragments.livetracking');
     })->name("livetracking");
 
+	Route::get('/livetrackingv2', function(){
+		return view('livetracking.fragments.livetrackingv2');
+	})->name("livetrackingv2")->middleware('auth');
 
     Route::get('/offroute', function(){
 		return view('offroute.fragments.offroute');
 	})->name("offroute");
+
+    Route::get('/simulation', function(){
+		return view('simulation.fragments.simulation');
+	})->name("simulation");
 
 });
 

@@ -87,7 +87,13 @@
                             {{--</span>--}}
                             {{--</a>--}}
                             {{--</li>--}}
-
+                            <li>
+                                <a href="{{ __("admin/org.php")}}">
+                                    <span>
+                                    <span class="align-middle">Admin Panel</span>
+                                    </span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -103,6 +109,7 @@
                                     @csrf
                                 </form>
                             </li>
+
                         </ul>
                     </div>
                 </div>

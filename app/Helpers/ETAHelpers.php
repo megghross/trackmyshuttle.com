@@ -33,10 +33,6 @@ class ETAHelpers
         "engineSpeed" => 15,
     );
 
-
-
-
-
     public function DecodeJson()
     {
         $json = file_get_contents(resource_path("data.json"));
